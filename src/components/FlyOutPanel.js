@@ -10,16 +10,19 @@ const FlyOutPanel = ({ isOpen, setIsOpen }) => {
     from: { right: -5000 },
     to: { right: 0 },
     reverse: !isOpen,
+    
   });
 
   const close = () => {
     if (!isOpen) return;
     setIsOpen(!isOpen);
   };
-  return (
+
+  return isOpen ? (
     <animated.aside
-      className="absolute shadow-xl top-0 bottom-0 bg-gray-200 w-1/2 p-12 overflow-scroll rounded-l-xl"
+      className="absolute shadow-xl top-0 bottom-0 bg-gray-200 w-full p-12 overflow-auto rounded-l-xl"
       style={{ ...springs }}
+      
     >
       <section className="flex flex-row justify-between items-center w-full">
         <h3 className="flex flex-row items-center text-3xl font-black">
@@ -75,7 +78,7 @@ const FlyOutPanel = ({ isOpen, setIsOpen }) => {
         </div>
       </References>
     </animated.aside>
-  );
+  ) : null;
 };
 FlyOutPanel.displayName = "FlyOutPanel";
 export default FlyOutPanel;
