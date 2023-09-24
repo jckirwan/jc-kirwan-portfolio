@@ -20,7 +20,7 @@ const FlyOutPanel = ({ isOpen, setIsOpen }) => {
 
   return isOpen ? (
     <animated.aside
-      className="absolute shadow-xl top-0 bottom-0 bg-gray-200 w-full p-12 overflow-auto rounded-l-xl"
+      className="absolute shadow-xl top-0 bottom-0 bg-gray-200 w-full p-12 overflow-auto rounded-l-xl print:bg-white print:rounded-none print:h-screen print:w-screen print:border-0"
       style={{ ...springs }}
       
     >
