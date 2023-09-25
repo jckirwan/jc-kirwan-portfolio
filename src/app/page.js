@@ -1,21 +1,24 @@
 "use client";
 import React, { useState } from "react";
-import BioCard from "@/components/BioCard";
-import FlyOutPanel from "@/components/FlyOutPanel";
-import Header from "@/components/Header";
-import ProfileImage from "@/components/ProfileImage";
-import AboutMe from "@/components/AboutMe";
+import FlyOutPanel from "@/app/components/FlyOutPanel";
+import Header from "@/app/components/Header";
+import AboutMe from "@/app/components/AboutMe";
+import WorkSamples from "@/app/components/WorkSamples";
+import Modal from "@/app/components/Modal";
 
 export const Home = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState({
+    open: false,
+    id: null,
+  });
+  const [openModal, setOpenModal] = useState(false);
   return (
-    <main className="flex flex-col min-h-screen items-start justify-start">
+    <main className="flex flex-col min-h-screen h-full items-start justify-start">
       <Header />
       <AboutMe isOpen={isOpen} setIsOpen={setIsOpen} />
       <FlyOutPanel isOpen={isOpen} setIsOpen={setIsOpen} />
-      <section className="flex flex-row items-center justify-center bg-gradient-to-t from-cyan-900 to-cyan-400 w-full">
-        <h3 className="text-3xl text-white font-black py-8">Work Samples</h3>
-      </section>
+      <WorkSamples openModal={openModal} setOpenModal={setOpenModal} />
+      <Modal openModal={openModal} setOpenModal={setOpenModal} />
     </main>
   );
 };

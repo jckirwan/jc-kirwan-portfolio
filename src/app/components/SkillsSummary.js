@@ -2,7 +2,7 @@ const SkillsSummary = ({}) => {
   return (
     <section className="my-8">
       <h4 className="text-xl font-black">Skills Summary</h4>
-      <ul className="ml-4 my-4 grid grid-cols-2">
+      <ul className="ml-4 my-4 grid grid-cols-1 md:grid-cols-2">
         <li className="text-lg font-black px-4 pb-4">
           Technology:
           <ul className="ml-4">

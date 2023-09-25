@@ -9,7 +9,7 @@ const BioCard = ({ isOpen, setIsOpen }) => {
         I am an experienced frontend engineer who is passionate about building
         intuitive, consistent and accessible user experiences.
       </p>
-      <div className="flex flex-row flex-wrap w-full my-12 [&>*]:mb-4 [&>a]:lg:mb-0 ]  justify-center items-center">
+      <div className="border-2 border-green-300 flex flex-row flex-wrap w-full my-12 [&>*]:mb-4 [&>*]:lg:mb-0 justify-center items-center">
         <Link
           target="_blank"
           rel="noreferrer nofollow"
@@ -18,16 +18,16 @@ const BioCard = ({ isOpen, setIsOpen }) => {
           <Linkedin className="h-12 w-12 text-red-600 mx-8 hover:text-cyan-400" />
         </Link>
         <Link
+          className="border-1 border-red-100"
           target="_blank"
           rel="noreferrer nofollow"
           href="https://github.com/jckirwan"
         >
           <GitHub className="h-12 w-12 text-red-600 mx-8 hover:text-cyan-400" />
         </Link>
-        <button onClick={() => setIsOpen(!isOpen)}>
+        <button className="appearance-none" onClick={() => setIsOpen(!isOpen)}>
           <FileText className="h-12 w-12 text-red-600 mx-8 hover:text-cyan-400" />
         </button>
-        <Archive className="h-12 w-12 text-red-600 mx-8 hover:text-cyan-400" />
       </div>
     </div>
   );
