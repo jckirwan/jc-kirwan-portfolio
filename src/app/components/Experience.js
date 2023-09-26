@@ -53,7 +53,7 @@ const Experience = ({}) => {
         <JobDescription
           items={[
             "Developed features and enhancements for Frontline’s award-winning website.",
-            "Built interactive project-specific standalone websites as needed.",
+            "Built project-specific standalone websites as needed.",
             "Built interactive website for Unresolved, an Emmy Award-winning multi-media project.",
           ]}
         />
