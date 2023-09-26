@@ -7,7 +7,7 @@ const BioCard = ({ openPanel }) => {
     <div className="lg:col-span-2 xl:col-span-3 flex flex-col text-black items-center justify-start w-full bg-gray-200 rounded-lg shadow-xl h-full 2xl:w-3/4 ">
       <h3 className="text-3xl font-black py-8">About Me</h3>
       <p className="text-lg text-justify md:text-left mt-4 lg:mt-8 px-6 lg:px-24">
-        I am an experienced frontend engineer who is passionate about building
+        I am an experienced senior frontend engineer who is passionate about building
         intuitive, consistent and accessible user experiences.
       </p>
       <div className="flex flex-row flex-wrap w-full my-12 [&>*]:mb-4 [&>*]:lg:mb-0 justify-center items-center">
