@@ -2,7 +2,7 @@
 import Image from "next/image";
 const WorkSample = ({ title, logo, logoAlt, id, summary, setOpenModal }) => {
   return (
-    <div className="bg-gray-200 shadow-xl p-8 m-4 rounded-lg relative w-full lg:w-1/4 group/work-sample-card">
+    <div className="bg-gray-200 shadow-xl p-8 rounded-lg relative w-full group/work-sample-card">
       <div className="flex flex-row justify-between items-center">
         <h4 className="text-base md:text-xl font-black pr-4 ">{title}</h4>
         <Image className="" src={"https:" + logo} alt={logoAlt} width={100} height={100} />

@@ -14,7 +14,7 @@ const WorkSamples = ({ openModal, setOpenModal }) => {
       <h3 id="work-samples" className="text-5xl text-white font-black py-8">
         Work Samples
       </h3>
-      <div className="flex flex-wrap justify-center w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 justify-center w-full">
         {workSamples.map((workSample) => {
           return (
             <>
