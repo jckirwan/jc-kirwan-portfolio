@@ -4,7 +4,7 @@ import ProfileImage from "./ProfileImage";
 const AboutMe = ({ openPanel, springs }) => {
   return (
     <section className="w-full flex flex-col lg:flex-row bg-cyan-400 justify-center py-6 md:py-12">
-      <div className="flex flex-col w-full items-center lg:items-stretch lg:flex-row lg:w-2/3 justify-center">
+      <div className="grid gap-y-4 md:gap-x-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:px-24 2xl:grid-cols-5 2xl:px-60 w-full items-center justify-center px-8 ">
         <ProfileImage />
         <BioCard openPanel={openPanel} springs={springs} />
       </div>
