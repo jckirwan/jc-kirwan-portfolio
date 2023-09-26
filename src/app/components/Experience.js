@@ -9,14 +9,14 @@ const Experience = ({}) => {
         <JobHeader
           jobTitle="Senior Frontend Engineer"
           company="Owl Labs"
-          dates="3/22 - present"
+          dates="3/22 - 9/23"
         />
         <JobDescription
           items={[
             "Built, implemented and maintained Owl-UI design system. This system significantly increased prototyping speed for all developers on the team, and guaranteed brand consistency.",
             "Refactored Owl-UI component library to leverage Owl-UI design system.",
-            "Implemented Owl-UI design system and component library into the Nest: an Owl Labs SaaS product ",
-            "Contributed to the Owl Labs 2023 Hack-a-thon winning Room-Designer application",
+            "Implemented Owl-UI design system and component library into the Nest: an Owl Labs SaaS product.",
+            "Contributed to the Owl Labs 2023 Hack-a-thon winning Room-Designer application.",
             "Wrote self-documenting code and unit tests for the Nest.",
             "Built the redesigned primary navigation in the Nest. This was done behind a Launch Darkly feature flag to allow for QA testing in production.",
             "Built the redesigned login experience for the Nest, leveraging AWS Cognito. This involved building login, forgot password, and sign up workflows.",
@@ -59,7 +59,7 @@ const Experience = ({}) => {
         />
         <JobHeader
           jobTitle="Web Developer II"
-          company="UF Human Resources"
+          company="University of Florida Human Resources"
           dates="12/17 - 10/18"
         />
         <JobDescription
@@ -71,7 +71,7 @@ const Experience = ({}) => {
         />
         <JobHeader
           jobTitle="Director of Web Services"
-          company="UF College of Law"
+          company="University of Florida College of Law"
           dates="11/14 - 12/17"
         />
         <JobDescription

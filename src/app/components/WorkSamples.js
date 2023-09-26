@@ -8,11 +8,13 @@ const WorkSamples = ({ openModal, setOpenModal }) => {
     getWorkSamples();
     //eslint-disable-next-line
   }, []);
-  console.log(workSamples);
+
   return (
-    <section className="flex flex-col items-center justify-center bg-gradient-to-t from-cyan-900 to-cyan-400 w-full p-4 md:p-12">
-      <h3 id="work-samples" className="text-5xl text-white font-black py-8">Work Samples</h3>
-      <div className="flex flex-wrap justify-around w-full">
+    <section className="flex flex-col items-center justify-center bg-gradient-to-t from-cyan-900 to-cyan-400 w-full p-4 md:p-12 ">
+      <h3 id="work-samples" className="text-5xl text-white font-black py-8">
+        Work Samples
+      </h3>
+      <div className="flex flex-wrap justify-center w-full">
         {workSamples.map((workSample) => {
           return (
             <>
