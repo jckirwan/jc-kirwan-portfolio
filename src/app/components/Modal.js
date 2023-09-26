@@ -29,14 +29,14 @@ const Modal = ({ openModal, setOpenModal }) => {
             </button>
           </div>
           {item?.link ? (
-            <div className="w-full flex justify-start mt-2">
+            <div className="w-full flex justify-start mt-2 group/live-link">
               <Link
-                className="w-fit flex flex-row items-center justify-between bg-red-600 text-white text-sm rounded px-4 py-2"
+                className="w-fit flex flex-row items-center justify-between bg-red-600 group-hover/live-link:bg-cyan-400 group-hover/live-link:cursor-pointer text-white text-sm rounded px-4 py-2"
                 href={item?.link}
                 target="_blank"
                 rel="noreferrer nofollow"
               >
-                View the live project <ArrowRight />
+                View the live project <ArrowRight className="h-4 w-4 ml-6"/>
               </Link>
             </div>
           ) : null}

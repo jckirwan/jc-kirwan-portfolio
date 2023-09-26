@@ -26,7 +26,7 @@ const FlyOutPanel = ({ springs, api }) => {
           className="print:hidden"
             target="_blank"
             rel="noreferrer nofollow"
-            href="/jckirwan-resume.pdf"
+            href="/jc-kirwan-resume-2023.pdf"
           >
             <Download className="ml-4 text-red-600 hover:text-cyan-400" />
           </Link>
