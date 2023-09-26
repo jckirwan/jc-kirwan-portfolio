@@ -21,7 +21,6 @@ export const Home = () => {
       to: { right: 0 },
     });
   };
-  console.log(ref);
   return (
     <>
       <main
