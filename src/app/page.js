@@ -1,16 +1,17 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState, useContext } from "react";
 import FlyOutPanel from "@/app/components/FlyOutPanel";
 import Header from "@/app/components/Header";
 import AboutMe from "@/app/components/AboutMe";
 import WorkSamples from "@/app/components/WorkSamples";
 import Modal from "@/app/components/Modal";
 import { useSpring } from "@react-spring/web";
+import ModalContext from "@/app/context/modalContext";
 
 export const Home = () => {
-  const ref = useRef();
-  const currentPosition = ref?.current?.scrollY;
-  const [openModal, setOpenModal] = useState({ open: false, id: null });
+  const { showModal } = useContext(ModalContext);
+
+
   const [springs, api] = useSpring(() => ({
     from: { right: -5000 },
   }));
@@ -23,18 +24,16 @@ export const Home = () => {
   };
 
   return (
-    <>
+    <body className={`${showModal ? "overflow-hidden" : ""}`}>
       <main
-        ref={ref}
-        className="flex flex-col min-h-screen h-full items-start justify-start"
-      >
+        className="flex flex-col min-h-screen h-full items-start justify-start">
         <Header />
         <AboutMe openPanel={openPanel} springs={springs} api={api} />
         <FlyOutPanel openPanel={openPanel} springs={springs} api={api} />
-        <WorkSamples openModal={openModal} setOpenModal={setOpenModal} />
-        <Modal openModal={openModal} setOpenModal={setOpenModal} />
-      </main>
-    </>
+        <WorkSamples />
+      </main >
+      <Modal />
+    </body>
   );
 };
 export default Home;

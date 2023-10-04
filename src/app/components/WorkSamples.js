@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useCms } from "../hooks/useCms";
 import WorkSample from "./WorkSample";
 
-const WorkSamples = ({ openModal, setOpenModal }) => {
+const WorkSamples = () => {
   const { getWorkSamples, workSamples } = useCms();
   useEffect(() => {
     getWorkSamples();
@@ -17,18 +17,15 @@ const WorkSamples = ({ openModal, setOpenModal }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 justify-center w-full">
         {workSamples.map((workSample) => {
           return (
-            <>
-              <WorkSample
-                key={workSample?.id}
-                id={workSample?.id}
-                title={workSample?.title}
-                logo={workSample?.logo}
-                logoAlt={workSample?.logoAlt}
-                summary={workSample?.summary}
-                openModal={openModal}
-                setOpenModal={setOpenModal}
-              />
-            </>
+
+            <WorkSample
+              key={workSample?.id}
+              id={workSample?.id}
+              title={workSample?.title}
+              logo={workSample?.logo}
+              logoAlt={workSample?.logoAlt}
+              summary={workSample?.summary}
+            />
           );
         })}
       </div>
