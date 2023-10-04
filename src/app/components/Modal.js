@@ -19,7 +19,7 @@ const Modal = () => {
 
   const item = workSamples?.filter(
     (workSample) => workSample?.id === modalDataId
-    )?.[0];
+  )?.[0];
 
 
 
@@ -91,7 +91,6 @@ const Modal = () => {
         </div>
       </div>
     </>
-    // console.log(modalDataId, showModal, item)
   ) : null;
 };
 Modal.displayName = "Modal";
