@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import Image from "next/image";
-import ModalContext from "@/app/context/modalContext";
+import ModalContext from "@/app/components/Modal/context/modalContext";
 
 const WorkSample = ({ title, logo, logoAlt, id, summary }) => {
   const { showModal, setShowModal, modalDataId, setModalDataId } = useContext(ModalContext);

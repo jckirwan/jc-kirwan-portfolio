@@ -4,9 +4,9 @@ import FlyOutPanel from "@/app/components/FlyOutPanel";
 import Header from "@/app/components/Header";
 import AboutMe from "@/app/components/AboutMe";
 import WorkSamples from "@/app/components/WorkSamples";
-import Modal from "@/app/components/Modal";
+import Modal from "@/app/components/Modal/Modal";
 import { useSpring } from "@react-spring/web";
-import ModalContext from "@/app/context/modalContext";
+import ModalContext from "@/app/components/Modal/context/modalContext";
 
 export const Home = () => {
   const { showModal } = useContext(ModalContext);

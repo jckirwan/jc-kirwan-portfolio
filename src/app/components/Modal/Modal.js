@@ -1,11 +1,11 @@
 "use client";
 import React, { useEffect, useContext } from "react";
 import { ArrowRight, X } from "react-feather";
-import { useCms } from "../hooks/useCms";
+import { useCms } from "../../hooks/useCms";
 import Image from "next/image";
 import Link from "next/link";
-import Pill from "./Pill";
-import ModalContext from "@/app/context/modalContext";
+import Pill from "../Pill";
+import ModalContext from "@/app/components/Modal/context/modalContext";
 
 const Modal = () => {
   const { showModal, setShowModal, modalDataId, setModalDataId } = useContext(ModalContext);

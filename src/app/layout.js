@@ -1,5 +1,5 @@
 import './globals.css'
-import ModalState from './context/ModalState'
+import ModalState from './components/Modal/context/ModalState'
 
 export const metadata = {
   title: 'JC Kirwan',
