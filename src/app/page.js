@@ -1,9 +1,9 @@
 "use client";
 import React, { useState, useContext } from "react";
-import FlyOutPanel from "@/app/components/FlyOutPanel";
+import FlyOutPanel from "@/app/components/Resume/FlyOutPanel";
 import Header from "@/app/components/Header";
-import AboutMe from "@/app/components/AboutMe";
-import WorkSamples from "@/app/components/WorkSamples";
+import AboutMe from "@/app/components/AboutMe/AboutMe";
+import WorkSamples from "@/app/components/WorkSamples/WorkSamples";
 import Modal from "@/app/components/Modal/Modal";
 import { useSpring } from "@react-spring/web";
 import ModalContext from "@/app/components/Modal/context/modalContext";

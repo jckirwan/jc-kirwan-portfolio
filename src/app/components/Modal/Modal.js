@@ -4,7 +4,7 @@ import { ArrowRight, X } from "react-feather";
 import { useCms } from "../../hooks/useCms";
 import Image from "next/image";
 import Link from "next/link";
-import Pill from "../Pill";
+import Pill from "./Pill";
 import ModalContext from "@/app/components/Modal/context/modalContext";
 
 const Modal = () => {
