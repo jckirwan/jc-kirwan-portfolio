@@ -1,28 +1,16 @@
-"use client";
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { ArrowRight, X } from "react-feather";
-import { useCms } from "../../hooks/useCms";
 import Image from "next/image";
 import Link from "next/link";
 import Pill from "./Pill";
-import ModalContext from "@/app/components/Modal/context/modalContext";
+import ContentContext from "@/app/contexts/contexts/content/contentContext";
 
 const Modal = () => {
-  const { showModal, setShowModal, modalDataId, setModalDataId } = useContext(ModalContext);
-
-  const { getWorkSamples, workSamples } = useCms();
-  useEffect(() => {
-    getWorkSamples();
-    //eslint-disable-next-line
-  }, []);
-
+  const { showModal, setShowModal, modalDataId, setModalDataId, workSamples } = useContext(ContentContext);
 
   const item = workSamples?.filter(
     (workSample) => workSample?.id === modalDataId
   )?.[0];
-
-
-
 
   const closeModal = () => {
     setShowModal(false);

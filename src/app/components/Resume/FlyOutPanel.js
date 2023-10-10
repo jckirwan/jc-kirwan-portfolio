@@ -1,4 +1,3 @@
-"use client";
 import { Download, X } from "react-feather";
 import { animated, useSpring } from "@react-spring/web";
 import SkillsSummary from "./SkillsSummary";

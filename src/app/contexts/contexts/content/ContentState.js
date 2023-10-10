@@ -1,16 +1,17 @@
 'use client'
 import React, { useReducer } from "react";
-import ModalContext from "./modalContext";
-import ModalReducer from "./modalReducer";
-import { SET_SHOW_MODAL, SET_MODAL_DATA_ID } from './ModalTypes';
+import ContentContext from "./contentContext";
+import ContentReducer from "./contentReducer";
+import { SET_SHOW_MODAL, SET_MODAL_DATA_ID, SET_WORK_SAMPLES } from './ContentTypes';
 
-const ModalState = (props) => {
+const ContentState = (props) => {
     const initialState = {
         showModal: false,
         modalDataId: "",
+        workSamples: [],
     };
 
-    const [state, dispatch] = useReducer(ModalReducer, initialState);
+    const [state, dispatch] = useReducer(ContentReducer, initialState);
 
     const setShowModal = (showModal) => {
         dispatch({ type: SET_SHOW_MODAL, payload: showModal });
@@ -20,16 +21,22 @@ const ModalState = (props) => {
         dispatch({ type: SET_MODAL_DATA_ID, payload: modalDataId });
     };
 
+    const setWorkSamples = (workSamples) => {
+        dispatch({ type: SET_WORK_SAMPLES, payload: workSamples });
+    }
+
     return (
-        <ModalContext.Provider
+        <ContentContext.Provider
             value={{
                 showModal: state.showModal,
                 modalDataId: state.modalDataId,
+                workSamples: state.workSamples,
                 setShowModal,
                 setModalDataId,
+                setWorkSamples
             }}>
             {props.children}
-        </ModalContext.Provider>
+        </ContentContext.Provider>
     );
 }
-export default ModalState;
+export default ContentState;

@@ -1,5 +1,5 @@
 import './globals.css'
-import ModalState from './components/Modal/context/ModalState'
+import ContentState from './contexts/contexts/content/ContentState'
 
 export const metadata = {
   title: 'JC Kirwan',
@@ -9,9 +9,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <ModalState>
+      <ContentState>
         {children}
-      </ModalState>
+      </ContentState>
     </html>
   )
 }

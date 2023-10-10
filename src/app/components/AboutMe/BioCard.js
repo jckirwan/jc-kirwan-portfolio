@@ -1,6 +1,5 @@
-"use client";
 import Link from "next/link";
-import { Archive, FileText, GitHub, Linkedin } from "react-feather";
+import { FileText, GitHub, Linkedin } from "react-feather";
 
 const BioCard = ({ openPanel }) => {
   return (

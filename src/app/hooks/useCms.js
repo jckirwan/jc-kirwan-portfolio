@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useContext } from "react";
+import ContentContext from "../contexts/contexts/content/contentContext";
 import { ContentfulClient } from "react-contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 export const useCms = () => {
-  const [workSamples, setWorkSamples] = useState([]);
+  const { setWorkSamples } = useContext(ContentContext || {});
 
   const contentfulClient = new ContentfulClient({
     space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
@@ -45,6 +46,5 @@ export const useCms = () => {
 
   return {
     getWorkSamples,
-    workSamples,
   };
 };

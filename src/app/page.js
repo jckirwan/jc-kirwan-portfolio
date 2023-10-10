@@ -1,16 +1,15 @@
 "use client";
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import FlyOutPanel from "@/app/components/Resume/FlyOutPanel";
 import Header from "@/app/components/Header";
 import AboutMe from "@/app/components/AboutMe/AboutMe";
 import WorkSamples from "@/app/components/WorkSamples/WorkSamples";
 import Modal from "@/app/components/Modal/Modal";
 import { useSpring } from "@react-spring/web";
-import ModalContext from "@/app/components/Modal/context/modalContext";
+import ContentContext from "@/app/contexts/contexts/content/contentContext";
 
 export const Home = () => {
-  const { showModal } = useContext(ModalContext);
-
+  const { showModal } = useContext(ContentContext);
 
   const [springs, api] = useSpring(() => ({
     from: { right: -5000 },
