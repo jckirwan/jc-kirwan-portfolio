@@ -1,4 +1,4 @@
-import { SET_SHOW_MODAL, SET_MODAL_DATA_ID, SET_WORK_SAMPLES } from './ContentTypes';
+import { SET_SHOW_MODAL, SET_MODAL_DATA_ID, SET_WORK_SAMPLES, SET_LOADING } from './ContentTypes';
 
 export const contentReducer = (state, action) => {
   switch (action.type) {
@@ -18,6 +18,12 @@ export const contentReducer = (state, action) => {
         workSamples: action.payload,
       };
     };
+    case SET_LOADING: {
+      return {
+        ...state,
+        loading: action.payload,
+      };
+    };  
     default:
       return state;
   }
