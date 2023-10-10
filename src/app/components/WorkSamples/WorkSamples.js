@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import { useCms } from "../../hooks/useCms";
-import ContentContext from "@/app/contexts/contexts/content/contentContext";
+import ContentContext from "@/app/contexts/content/contentContext";
 import WorkSample from "./WorkSample";
 import Spinner from "../Spinner";
 

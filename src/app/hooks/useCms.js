@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import ContentContext from "../contexts/contexts/content/contentContext";
+import ContentContext from "../contexts/content/contentContext";
 import { ContentfulClient } from "react-contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 

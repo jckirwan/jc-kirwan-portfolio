@@ -6,7 +6,7 @@ import AboutMe from "@/app/components/AboutMe/AboutMe";
 import WorkSamples from "@/app/components/WorkSamples/WorkSamples";
 import Modal from "@/app/components/Modal/Modal";
 import { useSpring } from "@react-spring/web";
-import ContentContext from "@/app/contexts/contexts/content/contentContext";
+import ContentContext from "@/app/contexts/content/contentContext";
 
 export const Home = () => {
   const { showModal } = useContext(ContentContext);

@@ -1,5 +1,5 @@
 import './globals.css'
-import ContentState from './contexts/contexts/content/ContentState'
+import ContentState from './contexts/content/ContentState'
 
 export const metadata = {
   title: 'JC Kirwan',

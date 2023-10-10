@@ -3,7 +3,7 @@ import { ArrowRight, X } from "react-feather";
 import Image from "next/image";
 import Link from "next/link";
 import Pill from "./Pill";
-import ContentContext from "@/app/contexts/contexts/content/contentContext";
+import ContentContext from "@/app/contexts/content/contentContext";
 
 const Modal = () => {
   const { showModal, setShowModal, modalDataId, setModalDataId, workSamples } = useContext(ContentContext);
