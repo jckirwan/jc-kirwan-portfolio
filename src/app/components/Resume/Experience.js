@@ -21,7 +21,7 @@ const Experience = ({}) => {
             "Built the redesigned primary navigation in the Nest. This was done behind a Launch Darkly feature flag to allow for QA testing in production.",
             "Built the redesigned login experience for the Nest, leveraging AWS Cognito. This involved building login, forgot password, and sign up workflows.",
             "Built the redesigned Dashboard for the Nest. This was done behind a Launch Darkly feature flag to allow for QA testing in production.",
-            "Advocated for and implemented integration of the Contentful CMS into the Nest. This included building components for announcments, banners, and maintenance mode. This work allowed non-technical product managers to make critical, timely updates to content in the Nest without engineering oversight, code changes, or deployments.",
+            "Advocated for and implemented integration of the Contentful CMS into the Nest. This included building components for announcements, banners, and maintenance mode. This work allowed non-technical product managers to make critical, timely updates to content in the Nest without engineering oversight, code changes, or deployments.",
             "Participated in code reviews and design reviews.",
             "Wrote design documents for complex features to outline and get team buy-in and feedback before code was written.",
           ]}
