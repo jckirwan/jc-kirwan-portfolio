@@ -1,4 +1,4 @@
-const SkillsSummary = ({}) => {
+const SkillsSummary = ({ }) => {
   return (
     <section className="my-8">
       <h4 className="text-xl font-black">Skills Summary</h4>
@@ -7,9 +7,9 @@ const SkillsSummary = ({}) => {
           Technology:
           <ul className="ml-4">
             <li className="list-disc text-base font-normal">
-            HTML, CSS, JavaScript, PHP, mySql, Git, React, Gatsby, Storybook, Laravel Blade, TailwindCSS, Alpine.js, Next.js, React Testing Library, NPM, Yarn, Composer, Github Actions, BitBucket Pipelines, Headless CMS, WordPress, Contentful, Drupal, Mixpanel, LaunchDarkly, Agile, Scrum
+              HTML, CSS, JavaScript, TypeScript, React, Git, Gatsby, Next.js, Storybook, TailwindCSS, React Testing Library, NPM, Yarn, Headless CMS, WordPress, Contentful, PHP, Laravel Blade, Alpine.js, Composer, Github Actions, BitBucket Pipelines,  Drupal, Mixpanel, LaunchDarkly, Agile, Scrum
             </li>
- 
+
           </ul>
         </li>
         <li className="text-lg font-black px-4 pb-4">
