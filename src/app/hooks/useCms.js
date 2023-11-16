@@ -4,7 +4,7 @@ import { ContentfulClient } from "react-contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 export const useCms = () => {
-  const { setWorkSamples, setLoading, setSkills } = useContext(ContentContext || {});
+  const { setWorkSamples, setLoading, setSkills, setWorkExperience } = useContext(ContentContext || {});
 
   const contentfulClient = new ContentfulClient({
     space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
@@ -54,6 +54,7 @@ export const useCms = () => {
   };
 
   const getSkills = async () => {
+    setLoading(true);
     try {
       await contentfulClient
         .getEntries({
@@ -79,8 +80,41 @@ export const useCms = () => {
     };
   }
 
+  const getWorkExperience = async () => {
+    try {
+      await contentfulClient
+        .getEntries({
+          content_type: "workExperience",
+        })
+        .then((response) => {
+          console.log(response);
+          let posts = [];
+          response.items.map((item) => {
+            posts.push({
+              id: item?.sys?.id,
+              organization: item?.fields?.organization,
+              jobTitle: item?.fields?.jobTitle,
+              startDate: new Date(item?.fields?.startDate),
+              endDate: new Date(item?.fields?.endDate),
+              jobDuties: documentToReactComponents(item?.fields?.jobDuties),
+              skillsUtilized: item?.fields?.skillsUtilized,
+            });
+            posts.sort((a, b) => (a.endDate > b.endDate) ? -1 : 1)
+            return setWorkExperience(posts)
+          })
+        });
+
+    } catch (error) {
+
+    } finally {
+      setLoading(false);
+    }
+  }
+
+
   return {
     getWorkSamples,
-    getSkills
+    getSkills,
+    getWorkExperience
   };
 };

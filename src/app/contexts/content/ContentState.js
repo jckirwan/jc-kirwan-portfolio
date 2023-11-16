@@ -2,7 +2,7 @@
 import React, { useReducer } from "react";
 import ContentContext from "./contentContext";
 import ContentReducer from "./contentReducer";
-import { SET_SHOW_MODAL, SET_MODAL_DATA_ID, SET_WORK_SAMPLES, SET_LOADING, SET_SKILLS } from './ContentTypes';
+import { SET_SHOW_MODAL, SET_MODAL_DATA_ID, SET_WORK_SAMPLES, SET_LOADING, SET_SKILLS, SET_WORK_EXPERIENCE } from './ContentTypes';
 
 const ContentState = (props) => {
     const initialState = {
@@ -11,6 +11,7 @@ const ContentState = (props) => {
         workSamples: [],
         loading: false,
         skills: [],
+        workExperience: [],
     };
 
     const [state, dispatch] = useReducer(ContentReducer, initialState);
@@ -30,6 +31,10 @@ const ContentState = (props) => {
         dispatch({ type: SET_SKILLS, payload: skills });
     }
 
+    const setWorkExperience = (workExperience) => {
+        dispatch({ type: SET_WORK_EXPERIENCE, payload: workExperience });
+    }
+
     const setLoading = (loading) => {
         dispatch({ type: SET_LOADING, payload: loading });
     }
@@ -41,11 +46,13 @@ const ContentState = (props) => {
                 modalDataId: state.modalDataId,
                 workSamples: state.workSamples,
                 skills: state.skills,
+                workExperience: state.workExperience,
                 loading: state.loading,
                 setShowModal,
                 setModalDataId,
                 setWorkSamples,
                 setSkills,
+                setWorkExperience,
                 setLoading
             }}>
             {props.children}

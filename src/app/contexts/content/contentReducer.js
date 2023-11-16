@@ -1,4 +1,4 @@
-import { SET_SHOW_MODAL, SET_MODAL_DATA_ID, SET_WORK_SAMPLES, SET_LOADING, SET_SKILLS } from './ContentTypes';
+import { SET_SHOW_MODAL, SET_MODAL_DATA_ID, SET_WORK_SAMPLES, SET_LOADING, SET_SKILLS, SET_WORK_EXPERIENCE } from './ContentTypes';
 
 export const contentReducer = (state, action) => {
   switch (action.type) {
@@ -22,6 +22,12 @@ export const contentReducer = (state, action) => {
       return {
         ...state,
         skills: action.payload,
+      };
+    };
+    case SET_WORK_EXPERIENCE: {
+      return {
+        ...state,
+        workExperience: action.payload,
       };
     };
     case SET_LOADING: {
