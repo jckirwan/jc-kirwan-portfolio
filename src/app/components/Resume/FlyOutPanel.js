@@ -2,6 +2,7 @@ import { Download, X } from "react-feather";
 import { animated, useSpring } from "@react-spring/web";
 import SkillsSummary from "./SkillsSummary";
 import Experience from "./Experience";
+import Education from "./Education";
 import References from "./References";
 import Reference from "./Reference";
 import Link from "next/link";
@@ -43,6 +44,7 @@ const FlyOutPanel = ({ springs, api }) => {
       <div className="block">jckirwan@gmail.com | Gainesville, FL</div>
       <SkillsSummary />
       <Experience />
+      <Education />
       <References>
         <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-1">
           <Reference
