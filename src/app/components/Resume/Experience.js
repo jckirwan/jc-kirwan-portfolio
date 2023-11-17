@@ -12,7 +12,7 @@ const Experience = ({ }) => {
     getWorkExperience();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(workExperience);
+
   return (
     <section className="my-8">
       <h4 className="text-xl font-black">Relevant Work Experience</h4>
@@ -20,7 +20,7 @@ const Experience = ({ }) => {
         {workExperience.map((job) => {
           const { id, endDate, jobDuties, jobTitle, organization, skillsUtilized, startDate } = job;
           return (
-            <>
+            <div key={id}>
               <JobHeader
                 jobTitle={jobTitle}
                 company={organization}
@@ -30,7 +30,7 @@ const Experience = ({ }) => {
               <JobDescription
                 jobDuties={jobDuties}
               />
-            </>
+            </div>
           );
         })}
       </ul>

@@ -4,7 +4,6 @@ import SkillsSummary from "./SkillsSummary";
 import Experience from "./Experience";
 import Education from "./Education";
 import References from "./References";
-import Reference from "./Reference";
 import Link from "next/link";
 const FlyOutPanel = ({ springs, api }) => {
   const closePanel = () => {
@@ -45,46 +44,7 @@ const FlyOutPanel = ({ springs, api }) => {
       <SkillsSummary />
       <Experience />
       <Education />
-      <References>
-        <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-1">
-          <Reference
-            name="Sterling Stokes"
-            title="Principal Frontend Engineer"
-            company="Owl Labs"
-            linkedin="https://www.linkedin.com/in/sterlingstokes/"
-          />
-          <Reference
-            name="Anthony DeLorenzo"
-            title="Senior Developer"
-            company="Frontline PBS"
-            linkedin="https://www.linkedin.com/in/anthony-delorenzo"
-          />
-          <Reference
-            name="Brent Osborn"
-            title="Principal Consultant and Strategist"
-            company="Off Square One"
-            linkedin="https://www.linkedin.com/in/brent-osborn-40393977/"
-          />
-          <Reference
-            name="Cameron Van Orman"
-            title="Lead Web Developer"
-            company="Northeastern University"
-            linkedin="https://www.linkedin.com/in/vanormandesign/"
-          />
-          <Reference
-            name="Melissa Gruntkosky"
-            title="Director UX/UI, Digital Strategies"
-            company="Vanderbilt University"
-            linkedin="https://www.linkedin.com/in/mgruntkosky/"
-          />
-          <Reference
-            name="Ray Kingston"
-            title="Web Developer"
-            company="Northeastern University"
-            linkedin="https://www.linkedin.com/in/ray-kingston-363bb511/"
-          />
-        </div>
-      </References>
+      <References />
     </animated.aside>
   );
 };

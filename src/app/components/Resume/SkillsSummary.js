@@ -10,14 +10,8 @@ const SkillsSummary = ({ }) => {
     //eslint-disable-next-line
   }, []);
 
-
-
   let techSkills = skills?.filter(skill => skill?.skillsType === "Technology")[0]?.skills;
   let softSkills = skills?.filter(skill => skill?.skillsType === "Soft Skills")[0]?.skills;
-
-
-
-
 
   return (
     <section className="my-8">
@@ -37,7 +31,6 @@ const SkillsSummary = ({ }) => {
             </li>
           </ul>
         </li>
-
         <li className="text-lg font-black px-4 pb-4">
           Soft Skills:
           <ul className="">

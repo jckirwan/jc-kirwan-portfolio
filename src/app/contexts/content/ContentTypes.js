@@ -1,5 +1,6 @@
 export const SET_WORK_SAMPLES = 'SET_WORK_SAMPLES';
 export const SET_SKILLS = 'SET_SKILLS';
+export const SET_REFERENCES = 'SET_REFERENCES';
 export const SET_WORK_EXPERIENCE = 'SET_WORK_EXPERIENCE';
 export const SET_LOADING = 'SET_LOADING';
 export const SET_SHOW_MODAL = 'SET_SHOW_MODAL';

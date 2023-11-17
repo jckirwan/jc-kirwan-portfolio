@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { Linkedin } from "react-feather";
-const Reference = ({ name, title, company, linkedin }) => {
+const Reference = ({ name, title, organization, linkedin }) => {
   return (
     <Link
       target="_blank"
@@ -13,7 +12,7 @@ const Reference = ({ name, title, company, linkedin }) => {
           <span className="font-black">{name}</span>
         </h5>
         <h6 className="text-cyan-800">{title}</h6>
-        <span className="uppercase font-bold text-sm">{company}</span>
+        <span className="uppercase font-bold text-sm">{organization}</span>
       </div>
     </Link>
   );

@@ -4,7 +4,7 @@ import { ContentfulClient } from "react-contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 export const useCms = () => {
-  const { setWorkSamples, setLoading, setSkills, setWorkExperience } = useContext(ContentContext || {});
+  const { setWorkSamples, setLoading, setSkills, setWorkExperience, setReferences } = useContext(ContentContext || {});
 
   const contentfulClient = new ContentfulClient({
     space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
@@ -43,14 +43,11 @@ export const useCms = () => {
             return setWorkSamples(posts);
           });
         })
-
     } catch (error) {
       console.error(error)
-
     } finally {
       setLoading(false);
     };
-
   };
 
   const getSkills = async () => {
@@ -67,12 +64,10 @@ export const useCms = () => {
               id: item?.sys?.id,
               skillsType: item?.fields?.skillsType,
               skills: item?.fields?.skills,
-
             });
             return setSkills(posts)
           })
         });
-
     } catch (error) {
       console.error(error)
     } finally {
@@ -81,13 +76,13 @@ export const useCms = () => {
   }
 
   const getWorkExperience = async () => {
+    setLoading(true);
     try {
       await contentfulClient
         .getEntries({
           content_type: "workExperience",
         })
         .then((response) => {
-          console.log(response);
           let posts = [];
           response.items.map((item) => {
             posts.push({
@@ -103,18 +98,44 @@ export const useCms = () => {
             return setWorkExperience(posts)
           })
         });
-
     } catch (error) {
-
+      console.error(error)
     } finally {
       setLoading(false);
     }
   }
 
+  const getReferences = async () => {
+    setLoading(true);
+    try {
+      await contentfulClient
+        .getEntries({
+          content_type: "reference",
+        })
+        .then((response) => {
+          let posts = [];
+          response.items.map((item) => {
+            posts.push({
+              id: item?.sys?.id,
+              name: item?.fields?.name,
+              title: item?.fields?.title,
+              organization: item?.fields?.organization,
+              linkedIn: item?.fields?.linkedIn,
+            });
+            return setReferences(posts)
+          })
+        })
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setLoading(false);
+    }
+  }
 
   return {
     getWorkSamples,
     getSkills,
-    getWorkExperience
+    getWorkExperience,
+    getReferences
   };
 };
