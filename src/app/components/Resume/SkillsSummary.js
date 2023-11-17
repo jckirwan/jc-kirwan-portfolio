@@ -14,13 +14,13 @@ const SkillsSummary = ({ }) => {
   let softSkills = skills?.filter(skill => skill?.skillsType === "Soft Skills")[0]?.skills;
 
   return (
-    <section className="my-8">
-      <h4 className="text-xl font-black">Skills Summary</h4>
-      <ul className="my-4 grid grid-cols-1 md:grid-cols-2">
-        <li className="text-lg font-black px-4 pb-4">
+    <section className="mt-8 print:mt-2">
+      <h4 className="text-xl font-black print:text-lg">Skills Summary</h4>
+      <ul className="my-4 grid grid-cols-1 md:grid-cols-2 print:my-0">
+        <li className="text-lg font-black px-4 pb-4 print:text-base">
           Technology:
-          <ul className="">
-            <li className="text-base font-normal">
+          <ul>
+            <li className="text-base font-normal print:text-sm">
               {techSkills?.map((skill, index) => {
                 return (
                   <span className="inline-flex" key={index + skill}>
@@ -31,10 +31,10 @@ const SkillsSummary = ({ }) => {
             </li>
           </ul>
         </li>
-        <li className="text-lg font-black px-4 pb-4">
+        <li className="text-lg font-black px-4 pb-4 print:text-base">
           Soft Skills:
-          <ul className="">
-            <li className="text-base font-normal">
+          <ul>
+            <li className="text-base font-normal print:text-sm">
               {softSkills?.map((skill, index) => {
                 return (
                   <span className="inline-flex" key={index + skill}>

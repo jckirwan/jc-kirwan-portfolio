@@ -11,7 +11,7 @@ const JobHeader = ({ jobTitle, company, dates, skillsUtilized }) => {
         <p className="mr-2 self-center">Skills Utilized: </p>
         {skillsUtilized?.map((skill, index) => {
           return (
-            <span key={index} className="text-xs font-normal mr-1 bg-cyan-700 text-white py-1 px-1 rounded-md">{skill}</span>
+            <span key={index} className="text-xs font-normal mr-1 bg-cyan-700 text-white py-1 px-1 rounded-md print:border-cyan-700 print:border print:bg-none print:text-black">{skill}</span>
           )
         })}
       </div>

@@ -14,9 +14,9 @@ const Experience = ({ }) => {
   }, []);
 
   return (
-    <section className="my-8">
-      <h4 className="text-xl font-black">Relevant Work Experience</h4>
-      <ul className="ml-4 my-4">
+    <section className="my-4 print:mb-2 print:mt-0">
+      <h4 className="text-xl font-black print:text-lg">Relevant Work Experience</h4>
+      <ul className="ml-4 my-4 print:my-2">
         {workExperience.map((job) => {
           const { id, endDate, jobDuties, jobTitle, organization, skillsUtilized, startDate } = job;
           return (

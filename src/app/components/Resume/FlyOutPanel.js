@@ -14,7 +14,7 @@ const FlyOutPanel = ({ springs, api }) => {
   };
   return (
     <animated.aside
-      className="fixed z-50 shadow-xl top-0 bottom-0 bg-gray-200 w-screen h-screen p-4 md:p-12 overflow-auto rounded-l-xl print:bg-white print:rounded-none print:h-full print:w-screen print:border-0"
+      className="fixed z-50 shadow-xl top-0 bottom-0 bg-gray-200 w-screen h-screen p-4 md:p-12 overflow-auto rounded-l-xl print:bg-white print:rounded-none print:!relative print:!w-auto print:!h-auto print:!block print:!overflow-visible print:border-0 print:shadow-none"
       style={{ ...springs }}
     >
       <section className="flex flex-row justify-between items-center w-full ">
@@ -22,7 +22,7 @@ const FlyOutPanel = ({ springs, api }) => {
           JC Kirwan
           <br />
           <Link
-          className="print:hidden"
+            className="print:hidden"
             target="_blank"
             rel="noreferrer nofollow"
             href="/jc-kirwan-resume-2023.pdf"
@@ -40,11 +40,15 @@ const FlyOutPanel = ({ springs, api }) => {
           />
         </button>
       </section>
-      <div className="block">jckirwan@gmail.com | Gainesville, FL</div>
+      <div className="block">
+        <span className="hidden print:inline">https://jc-kirwan.com | </span>jckirwan@gmail.com | Gainesville, FL<span className="hidden print:inline"> | 352.256.4157</span>
+      </div>
       <SkillsSummary />
       <Experience />
       <Education />
-      <References />
+      <div className="print:hidden">
+        <References />
+      </div>
     </animated.aside>
   );
 };
