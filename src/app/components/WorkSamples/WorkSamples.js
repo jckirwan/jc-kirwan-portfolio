@@ -22,7 +22,7 @@ const WorkSamples = ({ props }) => {
       </h3>
       {!loading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 justify-center w-full">
-          {workSamples.map((workSample) => {
+          {workSamples?.map((workSample) => {
             return (
               <WorkSample
                 key={workSample?.id}

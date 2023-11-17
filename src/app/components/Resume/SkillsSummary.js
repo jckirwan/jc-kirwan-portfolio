@@ -1,52 +1,52 @@
+import { useEffect, useContext } from "react";
+import ContentContext from "@/app/contexts/content/contentContext";
+import { useCms } from "@/app/hooks/useCms";
 const SkillsSummary = ({ }) => {
-  return (
-    <section className="my-8">
-      <h4 className="text-xl font-black">Skills Summary</h4>
-      <ul className="ml-4 my-4 grid grid-cols-1 md:grid-cols-2">
-        <li className="text-lg font-black px-4 pb-4">
-          Technology:
-          <ul className="ml-4">
-            <li className="list-disc text-base font-normal">
-              HTML, CSS, JavaScript, TypeScript, React, Git, Gatsby, Next.js, Storybook, TailwindCSS, React Testing Library, NPM, Yarn, Headless CMS, WordPress, Contentful, PHP, Laravel Blade, Alpine.js, Composer, Github Actions, BitBucket Pipelines,  Drupal, Mixpanel, LaunchDarkly, Agile, Scrum
-            </li>
+  const { skills } = useContext(ContentContext || {})
+  const { getSkills } = useCms();
 
+  useEffect(() => {
+    getSkills();
+    //eslint-disable-next-line
+  }, []);
+
+  let techSkills = skills?.filter(skill => skill?.skillsType === "Technology")[0]?.skills;
+  let softSkills = skills?.filter(skill => skill?.skillsType === "Soft Skills")[0]?.skills;
+
+  return (
+    <section className="mt-8 print:mt-2">
+      <h4 className="text-xl font-black print:text-lg">Skills Summary</h4>
+      <ul className="my-4 grid grid-cols-1 md:grid-cols-2 print:my-0">
+        <li className="text-lg font-black px-4 pb-4 print:text-base">
+          Technology:
+          <ul>
+            <li className="text-base font-normal print:text-sm">
+              {techSkills?.map((skill, index) => {
+                return (
+                  <span className="inline-flex" key={index + skill}>
+                    {skill} {techSkills.length - 1 > index ? <span className="inline-flex px-2 text-red-600">|</span> : null}
+                  </span>
+                )
+              })}
+            </li>
           </ul>
         </li>
-        <li className="text-lg font-black px-4 pb-4">
-          Education:
-          <ul className="ml-4">
-            <li className="list-disc text-base font-normal">
-              MA, Mass Communication, University of Florida, August 2005
-            </li>
-            <li className="list-disc text-base font-normal">
-              BA, English, University of Florida, December 2000
+        <li className="text-lg font-black px-4 pb-4 print:text-base">
+          Soft Skills:
+          <ul>
+            <li className="text-base font-normal print:text-sm">
+              {softSkills?.map((skill, index) => {
+                return (
+                  <span className="inline-flex" key={index + skill}>
+                    {skill} {softSkills.length - 1 > index ? <span className="inline-flex px-2 text-red-600">|</span> : null}
+                  </span>
+                )
+              })}
             </li>
           </ul>
         </li>
-        <li className="text-lg font-black px-4 pb-4">
-          Leadership:
-          <ul className="ml-4">
-            <li className="list-disc text-base font-normal">Public speaking</li>
-            <li className="list-disc text-base font-normal">Staff supervision</li>
-            <li className="list-disc text-base font-normal">
-              Treasurer for Gainesville High School Softball Boosters
-            </li>
-            <li className="list-disc text-base font-normal">Head coach for youth softball</li>
-          </ul>
-        </li>
-        <li className="text-lg font-black px-4 pb-4">
-          Hobbies:
-          <ul className="ml-4">
-            <li className="list-disc text-base font-normal">Playing music</li>
-            <li className="list-disc text-base font-normal">
-              Watching professional and college sports
-            </li>
-            <li className="list-disc text-base font-normal">Home renovations</li>
-            <li className="list-disc text-base font-normal">Coaching softball</li>
-          </ul>
-        </li>
-      </ul>
-    </section>
+      </ul >
+    </section >
   );
 };
 

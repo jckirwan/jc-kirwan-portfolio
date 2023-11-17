@@ -24,13 +24,14 @@ export const Home = () => {
 
   return (
     <body className={`${showModal ? "overflow-hidden" : ""}`}>
-      <main
-        className="flex flex-col min-h-screen h-full items-start justify-start">
-        <Header />
-        <AboutMe openPanel={openPanel} springs={springs} api={api} />
+      <main className="flex flex-col min-h-screen h-full items-start justify-start">
+        <div className="print:hidden">
+          <Header />
+          <AboutMe openPanel={openPanel} springs={springs} api={api} />
+          <WorkSamples />
+        </div>
         <FlyOutPanel openPanel={openPanel} springs={springs} api={api} />
-        <WorkSamples />
-      </main >
+      </main>
       <Modal />
     </body>
   );

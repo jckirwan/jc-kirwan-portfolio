@@ -1,14 +1,9 @@
-const JobDescription = ({ items }) => {
+
+const JobDescription = ({ jobDuties }) => {
   return (
-    <ul className="ml-4">
-      {items?.map((item, index) => {
-        return (
-          <li key={"job-item" + index} className="list-disc pr-16 pb-2">
-            {item}
-          </li>
-        );
-      })}
-    </ul>
+    <div className="[&>ul]:ml-4 [&>ul>li]:pr-16 [&>ul>li]:pb-2 [&>ul>li]:list-disc print:[&>ul>li]:text-sm">
+      {jobDuties}
+    </div>
   );
 };
 JobDescription.displayName = "JobDescription";
