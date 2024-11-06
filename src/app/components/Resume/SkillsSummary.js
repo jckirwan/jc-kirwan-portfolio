@@ -21,13 +21,14 @@ const SkillsSummary = ({ }) => {
           Technology:
           <ul>
             <li className="text-base font-normal print:text-sm">
-              {techSkills?.map((skill, index) => {
-                return (
-                  <span className="inline-flex" key={index + skill}>
-                    {skill} {techSkills.length - 1 > index ? <span className="inline-flex px-2 text-red-600">|</span> : null}
-                  </span>
-                )
-              })}
+              {techSkills?.map((skill, index) => (
+                <span className="inline-flex" key={`${index}-${skill}`}>
+                  {skill}
+                  {techSkills.length - 1 > index && (
+                    <span className="inline-flex px-2 text-red-600 after:content-['|'] print:text-black print:px-0 print:pr-1 print:after:content-[',']"></span>
+                  )}
+                </span>
+              ))}
             </li>
           </ul>
         </li>
@@ -38,7 +39,7 @@ const SkillsSummary = ({ }) => {
               {softSkills?.map((skill, index) => {
                 return (
                   <span className="inline-flex" key={index + skill}>
-                    {skill} {softSkills.length - 1 > index ? <span className="inline-flex px-2 text-red-600">|</span> : null}
+                    {skill} {softSkills.length - 1 > index ? <span className="inline-flex px-2 text-red-600 after:content-['|'] print:text-black print:px-0 print:pr-1 print:after:content-[',']"></span> : null}
                   </span>
                 )
               })}

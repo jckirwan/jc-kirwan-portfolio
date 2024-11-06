@@ -19,12 +19,16 @@ const Experience = ({ }) => {
       <ul className="ml-4 my-4 print:my-2">
         {workExperience.map((job) => {
           const { id, endDate, jobDuties, jobTitle, organization, skillsUtilized, startDate } = job;
+          const formattedStartDate = `${startDate.getMonth() + 1}/${startDate.getFullYear()}`;
+          const formattedEndMonth = `${endDate.getMonth() + 1}`;
+          const formattedEndYear = `${endDate.getFullYear()}`;
+          const formattedEndDate = (formattedEndMonth !== "NaN" && formattedEndYear !== "NaN") ? `${formattedEndMonth}/${formattedEndYear}` : "Present";
           return (
             <div key={id}>
               <JobHeader
                 jobTitle={jobTitle}
                 company={organization}
-                dates={`${startDate.getMonth() + 1}/${startDate.getFullYear()} - ${endDate.getMonth() + 1}/${endDate.getFullYear()}`}
+                dates={`${formattedStartDate} - ${formattedEndDate}`}
                 skillsUtilized={skillsUtilized}
               />
               <JobDescription
