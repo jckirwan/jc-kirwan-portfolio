@@ -2,7 +2,7 @@ import React from 'react'
 
 const Education = () => {
     return (
-        <section className="my-4 print:break-before-page">
+        <section className="my-4">
             <h4 className="text-xl font-black print:text-lg">Education</h4>
             <div className="text-lg font-black px-4 pb-4">
                 <ul className="ml-4">
