@@ -16,7 +16,7 @@ const WorkSamples = ({ props }) => {
 
 
   return (
-    <section className="flex flex-col items-center justify-center bg-gradient-to-t from-cyan-900 to-cyan-400 w-full p-4 md:p-12 ">
+    <section className="flex flex-col items-center justify-center  w-full p-4 md:p-12 ">
       <h3 id="work-samples" className="text-5xl text-white font-black py-8">
         Work Samples
       </h3>
