@@ -23,7 +23,7 @@ export const Home = () => {
   };
 
   return (
-    <body className={`${showModal ? "overflow-hidden" : ""}`}>
+    <body className={`bg-zinc-800 overscroll-none ${showModal ? "overflow-hidden" : ""}`}>
       <main className="flex flex-col min-h-screen h-full items-start justify-start">
         <div className="print:hidden">
           <Header />
