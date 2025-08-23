@@ -7,6 +7,7 @@ import WorkSamples from "@/app/components/WorkSamples/WorkSamples";
 import Modal from "@/app/components/Modal/Modal";
 import { useSpring } from "@react-spring/web";
 import ContentContext from "@/app/contexts/content/contentContext";
+import CaseStudies from "./components/CaseStudies/CaseStudies";
 
 export const Home = () => {
   const { showModal } = useContext(ContentContext);
@@ -23,13 +24,24 @@ export const Home = () => {
   };
 
   return (
-    <body className={`${showModal ? "overflow-hidden" : ""}`}>
-      <main className="flex flex-col min-h-screen h-full items-start justify-start">
-        <div className="print:hidden">
-          <Header />
-          <AboutMe openPanel={openPanel} springs={springs} api={api} />
-          <WorkSamples />
+    <body className={`bg-zinc-800 overscroll-none ${showModal ? "overflow-hidden" : ""}`}>
+      <main className="flex flex-col lg:flex-row min-h-screen h-full items-start justify-between px-4">
+
+        <div className="flex flex-col w-full lg:w-1/4 p-4">
+          <div className="print:hidden">
+            <Header />
+            <AboutMe openPanel={openPanel} springs={springs} api={api} />
+            <div className="print:hidden"></div>
+          </div>
         </div>
+        <div className="flex flex-col w-full lg:w-3/4 lg:p-4">
+          <div className="print:hidden">
+            {/* <CaseStudies /> */}
+            <WorkSamples />
+            
+          </div>
+        </div>
+
         <FlyOutPanel openPanel={openPanel} springs={springs} api={api} />
       </main>
       <Modal />
