@@ -7,6 +7,7 @@ import WorkSamples from "@/app/components/WorkSamples/WorkSamples";
 import Modal from "@/app/components/Modal/Modal";
 import { useSpring } from "@react-spring/web";
 import ContentContext from "@/app/contexts/content/contentContext";
+import CaseStudies from "./components/CaseStudies/CaseStudies";
 
 export const Home = () => {
   const { showModal } = useContext(ContentContext);
@@ -35,7 +36,9 @@ export const Home = () => {
         </div>
         <div className="flex flex-col w-full lg:w-3/4 lg:p-4">
           <div className="print:hidden">
+            {/* <CaseStudies /> */}
             <WorkSamples />
+            
           </div>
         </div>
 

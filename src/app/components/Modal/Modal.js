@@ -20,8 +20,8 @@ const Modal = () => {
   return showModal ? (
     <>
       <div className="flex fixed top-0 bottom-0 right-0 left-0 z-[51] bg-black opacity-80 h-screen w-screen" role="dialog" />
-      <div className="flex justify-center self-center bg-white overflow-hidden">
-        <div className="fixed top-4 lg:top-8 rounded-md z-[52] overflow-hidden bg-white shadow-md w-full md:max-w-[50%]  p-8">
+      <div className="flex justify-center self-center  overflow-hidden">
+        <div className="fixed top-4 lg:top-8 rounded-md z-[52] overflow-hidden bg-zinc-900 border border-gray-300 text-white shadow-md w-full md:max-w-[50%]  p-8">
           <div className="flex flex-row justify-between mb-4">
             <span className="font-black">{item?.title}</span>
             <button onClick={() => closeModal()}>
@@ -31,7 +31,7 @@ const Modal = () => {
           {item?.link ? (
             <div className="w-full flex justify-start mt-2 group/live-link">
               <Link
-                className="w-fit flex flex-row items-center justify-between bg-red-600 hover:bg-cyan-400 hover:cursor-pointer text-gray-300 text-sm rounded px-4 py-2"
+                className="w-fit flex flex-row items-center justify-between bg-red-600 hover:bg-cyan-400 hover:cursor-pointer text-white text-sm rounded px-4 py-2"
                 href={item?.link}
                 target="_blank"
                 rel="noreferrer nofollow"

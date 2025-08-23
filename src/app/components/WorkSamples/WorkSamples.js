@@ -17,7 +17,9 @@ const WorkSamples = ({ props }) => {
 
   return (
     <section className="flex flex-col items-start justify-center  w-full p-4">
-
+      <h3 id="work-samples" className="text-2xl uppercase pb-4 text-gray-300 font-black">
+        Work Samples
+      </h3>
       {!loading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 justify-center w-full">
           {workSamples?.map((workSample) => {
