@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link";
 import { FileText, GitHub, Linkedin } from "react-feather";
 

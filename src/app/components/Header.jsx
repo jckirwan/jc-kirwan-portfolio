@@ -1,3 +1,4 @@
+"use client"
 const Header = ({ }) => {
   return (
     <header className="h-full full text-center flex flex-row justify-center">

@@ -7,7 +7,6 @@ import WorkSamples from "@/app/components/WorkSamples/WorkSamples";
 import Modal from "@/app/components/Modal/Modal";
 import { useSpring } from "@react-spring/web";
 import ContentContext from "@/app/contexts/content/contentContext";
-import CaseStudies from "./components/CaseStudies/CaseStudies";
 
 export const Home = () => {
   const { showModal } = useContext(ContentContext);
@@ -24,7 +23,7 @@ export const Home = () => {
   };
 
   return (
-    <body className={`bg-zinc-800 overscroll-none ${showModal ? "overflow-hidden" : ""}`}>
+    <div className={`bg-zinc-800 overscroll-none ${showModal ? "overflow-hidden" : ""}`}>
       <main className="flex flex-col lg:flex-row min-h-screen h-full items-start justify-between px-4">
 
         <div className="flex flex-col w-full lg:w-1/4 p-4">
@@ -45,7 +44,7 @@ export const Home = () => {
         <FlyOutPanel openPanel={openPanel} springs={springs} api={api} />
       </main>
       <Modal />
-    </body>
+    </div>
   );
 };
 export default Home;

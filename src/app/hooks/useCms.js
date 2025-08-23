@@ -1,3 +1,4 @@
+'use client'
 import { useContext } from "react";
 import ContentContext from "../contexts/content/contentContext";
 import { ContentfulClient } from "react-contentful";

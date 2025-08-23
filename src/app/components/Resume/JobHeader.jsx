@@ -1,3 +1,4 @@
+"use client"
 const JobHeader = ({ jobTitle, company, dates, skillsUtilized }) => {
   return (
     <li className="text-base md:text-lg font-black">

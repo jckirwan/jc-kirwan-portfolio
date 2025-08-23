@@ -1,3 +1,4 @@
+"use client"
 import { useEffect, useContext } from "react";
 import { useCms } from "@/app/hooks/useCms";
 import contentContext from "@/app/contexts/content/contentContext";

@@ -1,3 +1,4 @@
+"use client"
 import React, { useContext } from "react";
 import { ArrowRight, X } from "react-feather";
 import Image from "next/image";
