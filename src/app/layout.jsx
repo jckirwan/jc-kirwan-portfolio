@@ -1,17 +1,16 @@
+"use client"
 import './globals.css'
 import ContentState from './contexts/content/ContentState'
 
-export const metadata = {
-  title: 'JC Kirwan',
-  description: 'Kirwan-ing',
-}
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <ContentState>
-        {children}
-      </ContentState>
+      <body>
+        <ContentState>
+          {children}
+        </ContentState>
+      </body>
     </html>
   )
 }

@@ -1,3 +1,5 @@
+
+"use client"
 import { useEffect, useContext } from "react";
 import JobDescription from "./JobDescription";
 import JobHeader from "./JobHeader";

@@ -1,3 +1,4 @@
+"use client"
 import BioCard from "./BioCard";
 import ProfileImage from "./ProfileImage";
 
