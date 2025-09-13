@@ -4,7 +4,7 @@ This is the code repository for my portfolio at [https://jc-kirwan.com](https://
 
 ## Features
 
-This is a single page application that demonstrates functional components, a custom hook to get data from the Contentful CMS, `/src/app/hooks/useCms.js`, and use of the context api to store data from the hook, `/src/app/contexts/content`. It also features an animation using the react-spring library, which you can see in action in `/src/app/index.js` and `/src/app/components/Resume/FlyOutPanel.js`.
+This is a single page application that demonstrates functional components, a custom hook to get data from the Contentful CMS, `/src/app/hooks/useCms.js`, and use of the context api to store data from the hook, `/src/app/contexts/content`. It also features an animation using the react-spring library, which you can see in action in `/src/app/page.tsx` and `/src/app/components/Resume/FlyOutPanel.tsx`.
 
 ## Notes
 

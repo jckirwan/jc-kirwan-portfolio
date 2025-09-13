@@ -1,9 +1,8 @@
 'use client';
 import React, { useContext } from 'react';
 import FlyOutPanel from './components/Resume/FlyOutPanel';
-import Header from './components/Header';
-import AboutMe from './components/AboutMe/AboutMe';
-import WorkSamples from './components/WorkSamples/WorkSamples';
+import Profile from './components/Profile/Profile';
+import WorkSamples from './components/WorkExperience/WorkSamples';
 import Modal from './components/Modal/Modal';
 import { useSpring } from '@react-spring/web';
 import ContentContext from './contexts/content/contentContext';
@@ -29,9 +28,7 @@ const Home: React.FC = () => {
       <main className="flex flex-col lg:flex-row min-h-screen h-full items-start justify-between px-4">
         <div className="flex flex-col w-full lg:w-1/4 p-4">
           <div className="print:hidden">
-            <Header />
-            <AboutMe openPanel={openPanel} springs={springs} />
-            <div className="print:hidden"></div>
+            <Profile openPanel={openPanel} springs={springs} />
           </div>
         </div>
         <div className="flex flex-col w-full lg:w-3/4 lg:p-4">

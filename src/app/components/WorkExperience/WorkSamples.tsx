@@ -2,7 +2,7 @@
 import React, { useEffect, useContext } from 'react';
 import { useCms } from '../../hooks/useCms';
 import ContentContext from '../../contexts/content/contentContext';
-import WorkSample from './WorkSample';
+import SingleWorkSample from './SingleWorkSample';
 import Spinner from '../Spinner';
 
 const WorkSamples: React.FC = () => {
@@ -29,7 +29,7 @@ const WorkSamples: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 justify-center w-full">
           {workSamples?.map((workSample: any) => {
             return (
-              <WorkSample
+              <SingleWorkSample
                 key={workSample?.id}
                 id={workSample?.id}
                 title={workSample?.title}

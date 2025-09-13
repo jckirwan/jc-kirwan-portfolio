@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import Image from 'next/image';
 import ContentContext from '../../contexts/content/contentContext';
 
-interface WorkSampleProps {
+interface SingleWorkSampleProps {
   title: string;
   logo: string;
   logoAlt: string;
@@ -11,7 +11,7 @@ interface WorkSampleProps {
   summary: string;
 }
 
-const WorkSample: React.FC<WorkSampleProps> = ({
+const SingleWorkSample: React.FC<SingleWorkSampleProps> = ({
   title,
   logo,
   logoAlt,
@@ -50,5 +50,5 @@ const WorkSample: React.FC<WorkSampleProps> = ({
     </div>
   );
 };
-WorkSample.displayName = 'WorkSample';
-export default WorkSample;
+SingleWorkSample.displayName = 'SingleWorkSample';
+export default SingleWorkSample;
