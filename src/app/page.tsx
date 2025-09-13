@@ -6,6 +6,7 @@ import WorkSamples from './components/WorkExperience/WorkSamples';
 import Modal from './components/Modal/Modal';
 import { useSpring } from '@react-spring/web';
 import ContentContext from './contexts/content/contentContext';
+import WorkExperience from './components/WorkExperience/WorkExperience';
 
 const Home: React.FC = () => {
   const { showModal } = useContext(ContentContext);
@@ -33,8 +34,7 @@ const Home: React.FC = () => {
         </div>
         <div className="flex flex-col w-full lg:w-3/4 lg:p-4">
           <div className="print:hidden">
-            {/* <CaseStudies /> */}
-            <WorkSamples />
+            <WorkExperience />
           </div>
         </div>
 
