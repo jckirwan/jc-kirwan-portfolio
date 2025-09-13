@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^16.1.0",
@@ -25,7 +26,12 @@
   "devDependencies": {
     "@types/node": "^24.3.3",
     "@types/react": "^19.1.13",
+    "husky": ">=6",
+    "lint-staged": ">=10",
     "prettier": "^3.6.2",
     "typescript": "^5.9.2"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,css,md}": "prettier --write"
   }
 }
