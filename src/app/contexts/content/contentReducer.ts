@@ -7,6 +7,7 @@ import {
   SET_SKILLS,
   SET_WORK_EXPERIENCE,
   SET_REFERENCES,
+  SET_CASE_STUDIES,
 } from './ContentTypes';
 
 interface Action {
@@ -42,6 +43,13 @@ export const contentReducer = (state: any, action: Action) => {
       return {
         ...state,
         workExperience: action.payload,
+      };
+    }
+
+    case SET_CASE_STUDIES: {
+      return {
+        ...state,
+        caseStudies: action.payload,
       };
     }
     case SET_REFERENCES: {

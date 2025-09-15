@@ -6,31 +6,37 @@ import SingleCaseStudy from './SingleCaseStudy';
 import Spinner from '../Spinner';
 
 const CaseStudies: React.FC = () => {
-  // const { caseStudies, loading } = useContext(ContentContext);
-  // const { getCaseStudies } = useCms();
+  const { caseStudies, loading } = useContext(ContentContext);
+  const { getCaseStudies } = useCms();
 
-  // useEffect(
-  //   () => {
-  //     getCaseStudies();
+  useEffect(
+    () => {
+      getCaseStudies();
+    },
+    //eslint-disable-next-line
+    [],
+  );
+
+  // const caseStudies = [
+  //   {
+  //     id: '1',
+  //     title: 'Extend Design System',
+  //     summary:
+  //       'Extended existing vanilla scss-based design system and component library to support vendors using MaterialUI as well as TailwindCSS.',
+  //     challenge: '',
+  //     solution: '',
+  //     results: '',
   //   },
-  //   //eslint-disable-next-line
-  //   [],
-  // );
-  const loading = false;
-  const caseStudies = [
-    {
-      id: '1',
-      title: 'Extend Design System',
-      summary:
-        'Extended existing vanilla scss-based design system and component library to support vendors using MaterialUI as well as TailwindCSS.',
-    },
-    {
-      id: '2',
-      title: 'Enhance Developer Experience',
-      summary:
-        'Created software development kit in order to streamline and standardize development process throughout our complex frontend ecosystem.',
-    },
-  ];
+  //   {
+  //     id: '2',
+  //     title: 'Enhance Developer Experience',
+  //     summary:
+  //       'Created software development kit in order to streamline and standardize development process throughout our complex frontend ecosystem.',
+  //     challenge: '',
+  //     solution: '',
+  //     results: '',
+  //   },
+  // ];
   return (
     <section className="flex flex-col items-start justify-center  w-full p-4">
       <h3

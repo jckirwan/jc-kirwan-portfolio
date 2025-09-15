@@ -12,6 +12,7 @@ export const useCms = () => {
     setSkills,
     setWorkExperience,
     setReferences,
+    setCaseStudies,
   } = useContext(ContentContext || {});
   // @ts-ignore
   const contentfulClient: any = new ContentfulClient({
@@ -140,10 +141,44 @@ export const useCms = () => {
     }
   };
 
+  const getCaseStudies = async () => {
+    setLoading(true);
+    try {
+      await contentfulClient
+        .getEntries({
+          content_type: 'caseStudy',
+        })
+        .then((response: any) => {
+          let posts = [];
+          response.items.map((item: any) => {
+            posts.push({
+              data: item,
+              isCaseStudy: true,
+              id: item?.sys?.id,
+              title: item?.fields?.title,
+              logo: item?.fields?.companyLogo?.fields?.file?.url,
+              logoAlt: item?.fields?.companyLogo?.fields?.description,
+              summary: item?.fields?.summary,
+              challenge: documentToReactComponents(item?.fields?.challenge),
+              solution: documentToReactComponents(item?.fields?.solution),
+              results: documentToReactComponents(item?.fields?.results),
+              technologiesUsed: item?.fields?.technologiesUsed,
+            });
+            return setCaseStudies(posts);
+          });
+        });
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return {
     getWorkSamples,
     getSkills,
     getWorkExperience,
     getReferences,
+    getCaseStudies,
   };
 };

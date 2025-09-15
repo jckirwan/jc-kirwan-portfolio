@@ -10,6 +10,7 @@ import {
   SET_SKILLS,
   SET_WORK_EXPERIENCE,
   SET_REFERENCES,
+  SET_CASE_STUDIES,
 } from './ContentTypes';
 
 interface ContentStateProps {
@@ -20,6 +21,7 @@ interface State {
   showModal: boolean;
   modalDataId: string;
   workSamples: any[];
+  caseStudies: any[];
   loading: boolean;
   skills: any[];
   workExperience: any[];
@@ -31,6 +33,7 @@ const ContentState: FC<ContentStateProps> = (props) => {
     showModal: false,
     modalDataId: '',
     workSamples: [],
+    caseStudies: [],
     loading: false,
     skills: [],
     workExperience: [],
@@ -54,6 +57,10 @@ const ContentState: FC<ContentStateProps> = (props) => {
     dispatch({ type: SET_SKILLS, payload: skills });
   };
 
+  const setCaseStudies = (caseStudies: any[]) => {
+    dispatch({ type: SET_CASE_STUDIES, payload: caseStudies });
+  };
+
   const setWorkExperience = (workExperience: any[]) => {
     dispatch({ type: SET_WORK_EXPERIENCE, payload: workExperience });
   };
@@ -73,6 +80,7 @@ const ContentState: FC<ContentStateProps> = (props) => {
         workSamples: state.workSamples,
         skills: state.skills,
         workExperience: state.workExperience,
+        caseStudies: state.caseStudies,
         references: state.references,
         loading: state.loading,
         setShowModal,
@@ -82,6 +90,7 @@ const ContentState: FC<ContentStateProps> = (props) => {
         setWorkExperience,
         setReferences,
         setLoading,
+        setCaseStudies,
       }}
     >
       {props.children}
