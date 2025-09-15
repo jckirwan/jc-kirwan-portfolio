@@ -57,8 +57,7 @@
           "type": "Symbol",
           "localized": true,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -68,8 +67,7 @@
           "type": "Link",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "linkType": "Asset"
@@ -80,8 +78,7 @@
           "type": "Text",
           "localized": true,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -93,19 +90,15 @@
           "required": true,
           "validations": [
             {
-              "enabledMarks": [
-              ],
+              "enabledMarks": [],
               "message": "Marks are not allowed"
             },
             {
-              "enabledNodeTypes": [
-                "hyperlink"
-              ],
+              "enabledNodeTypes": ["hyperlink"],
               "message": "Only link to Url nodes are allowed"
             },
             {
-              "nodes": {
-              }
+              "nodes": {}
             }
           ],
           "disabled": false,
@@ -119,9 +112,7 @@
           "required": false,
           "validations": [
             {
-              "linkMimetypeGroup": [
-                "image"
-              ]
+              "linkMimetypeGroup": ["image"]
             }
           ],
           "disabled": false,
@@ -136,9 +127,7 @@
           "required": false,
           "validations": [
             {
-              "linkMimetypeGroup": [
-                "image"
-              ]
+              "linkMimetypeGroup": ["image"]
             }
           ],
           "disabled": false,
@@ -168,14 +157,12 @@
           "type": "Array",
           "localized": true,
           "required": false,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Symbol",
-            "validations": [
-            ]
+            "validations": []
           }
         }
       ]
@@ -239,10 +226,7 @@
           "required": true,
           "validations": [
             {
-              "in": [
-                "Technology",
-                "Soft Skills"
-              ]
+              "in": ["Technology", "Soft Skills"]
             }
           ],
           "defaultValue": {
@@ -257,14 +241,12 @@
           "type": "Array",
           "localized": true,
           "required": false,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Symbol",
-            "validations": [
-            ]
+            "validations": []
           }
         }
       ]
@@ -326,8 +308,7 @@
           "type": "Symbol",
           "localized": true,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -337,8 +318,7 @@
           "type": "Symbol",
           "localized": false,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -348,8 +328,7 @@
           "type": "Date",
           "localized": true,
           "required": false,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -359,8 +338,7 @@
           "type": "Date",
           "localized": true,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -372,11 +350,7 @@
           "required": true,
           "validations": [
             {
-              "enabledMarks": [
-                "bold",
-                "italic",
-                "underline"
-              ],
+              "enabledMarks": ["bold", "italic", "underline"],
               "message": "Only bold, italic, and underline marks are allowed"
             },
             {
@@ -389,8 +363,7 @@
               "message": "Only unordered list, link to Url, link to entry, and link to asset nodes are allowed"
             },
             {
-              "nodes": {
-              }
+              "nodes": {}
             }
           ],
           "disabled": false,
@@ -402,14 +375,12 @@
           "type": "Array",
           "localized": true,
           "required": false,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false,
           "items": {
             "type": "Symbol",
-            "validations": [
-            ]
+            "validations": []
           }
         }
       ]
@@ -471,8 +442,7 @@
           "type": "Symbol",
           "localized": true,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -482,8 +452,7 @@
           "type": "Symbol",
           "localized": true,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },
@@ -493,8 +462,7 @@
           "type": "Symbol",
           "localized": true,
           "required": true,
-          "validations": [
-          ],
+          "validations": [],
           "disabled": false,
           "omitted": false
         },

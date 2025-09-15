@@ -1,13 +1,17 @@
-"use client"
-import Link from "next/link";
-import { FileText, GitHub, Linkedin } from "react-feather";
+'use client';
+import Link from 'next/link';
+import { FileText, GitHub, Linkedin } from 'react-feather';
 
-const BioCard = ({ openPanel }) => {
+interface BioCardProps {
+  openPanel: () => void;
+}
+
+const BioCard: React.FC<BioCardProps> = ({ openPanel }) => {
   return (
     <div className="flex flex-col text-gray-300 items-center justify-start w-full bg-zinc-800">
       <p className="text-lg text-justify py-4">
-        I am an experienced senior frontend engineer who is passionate about building
-        intuitive, consistent and accessible user experiences.
+        I am an experienced senior frontend engineer who is passionate about
+        building intuitive, consistent and accessible user experiences.
       </p>
       <div className="flex flex-row flex-wrap w-full justify-around items-center pb-4">
         <Link
@@ -42,5 +46,5 @@ const BioCard = ({ openPanel }) => {
     </div>
   );
 };
-BioCard.displayName = "BioCard";
+BioCard.displayName = 'BioCard';
 export default BioCard;

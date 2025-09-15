@@ -1,9 +1,9 @@
-"use client"
-import { useEffect, useContext } from "react";
-import ContentContext from "@/app/contexts/content/contentContext";
-import { useCms } from "@/app/hooks/useCms";
-const SkillsSummary = ({ }) => {
-  const { skills } = useContext(ContentContext || {})
+'use client';
+import { useEffect, useContext } from 'react';
+import ContentContext from '../../contexts/content/contentContext';
+import { useCms } from '../../hooks/useCms';
+const SkillsSummary: React.FC = () => {
+  const { skills } = useContext(ContentContext || {});
   const { getSkills } = useCms();
 
   useEffect(() => {
@@ -11,8 +11,12 @@ const SkillsSummary = ({ }) => {
     //eslint-disable-next-line
   }, []);
 
-  let techSkills = skills?.filter(skill => skill?.skillsType === "Technology")[0]?.skills;
-  let softSkills = skills?.filter(skill => skill?.skillsType === "Soft Skills")[0]?.skills;
+  let techSkills = skills?.filter(
+    (skill: any) => skill?.skillsType === 'Technology',
+  )[0]?.skills;
+  let softSkills = skills?.filter(
+    (skill: any) => skill?.skillsType === 'Soft Skills',
+  )[0]?.skills;
 
   return (
     <section className="mt-8 print:mt-2">
@@ -22,7 +26,7 @@ const SkillsSummary = ({ }) => {
           Technology:
           <ul>
             <li className="text-base font-normal print:text-sm">
-              {techSkills?.map((skill, index) => (
+              {techSkills?.map((skill: string, index: number) => (
                 <span className="inline-flex" key={`${index}-${skill}`}>
                   {skill}
                   {techSkills.length - 1 > index && (
@@ -37,20 +41,23 @@ const SkillsSummary = ({ }) => {
           Soft Skills:
           <ul>
             <li className="text-base font-normal print:text-sm">
-              {softSkills?.map((skill, index) => {
+              {softSkills?.map((skill: string, index: number) => {
                 return (
                   <span className="inline-flex" key={index + skill}>
-                    {skill} {softSkills.length - 1 > index ? <span className="inline-flex px-2 text-red-600 after:content-['|'] print:text-black print:px-0 print:pr-1 print:after:content-[',']"></span> : null}
+                    {skill}{' '}
+                    {softSkills.length - 1 > index ? (
+                      <span className="inline-flex px-2 text-red-600 after:content-['|'] print:text-black print:px-0 print:pr-1 print:after:content-[',']"></span>
+                    ) : null}
                   </span>
-                )
+                );
               })}
             </li>
           </ul>
         </li>
-      </ul >
-    </section >
+      </ul>
+    </section>
   );
 };
 
-SkillsSummary.displayName = "SkillsSummary";
+SkillsSummary.displayName = 'SkillsSummary';
 export default SkillsSummary;

@@ -1,7 +1,7 @@
-"use client"
-import Image from "next/image";
+'use client';
+import Image from 'next/image';
 
-const ProfileImage = () => {
+const ProfileImage: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center">
       <Image
@@ -13,10 +13,7 @@ const ProfileImage = () => {
         priority={true}
       />
     </div>
-
-
-
   );
 };
-ProfileImage.displayName = "ProfileImage";
+ProfileImage.displayName = 'ProfileImage';
 export default ProfileImage;

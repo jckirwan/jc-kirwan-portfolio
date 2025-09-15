@@ -1,12 +1,12 @@
 const nextConfig = {
-    images: {
-        remotePatterns: [
-          {
-            protocol: "https",
-            hostname: 'images.ctfassets.net',
-          },
-        ],
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.ctfassets.net',
       },
-}
+    ],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

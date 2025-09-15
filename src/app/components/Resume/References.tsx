@@ -1,10 +1,10 @@
-"use client"
-import { useEffect, useContext } from "react";
-import { useCms } from "@/app/hooks/useCms";
-import contentContext from "@/app/contexts/content/contentContext";
-import Reference from "./Reference";
+'use client';
+import { useEffect, useContext } from 'react';
+import { useCms } from '../../hooks/useCms';
+import contentContext from '../../contexts/content/contentContext';
+import Reference from './Reference';
 
-const References = () => {
+const References: React.FC = () => {
   const { getReferences } = useCms();
   const { references } = useContext(contentContext);
 
@@ -17,7 +17,7 @@ const References = () => {
     <section className="my-8">
       <h4 className="text-xl font-black">References</h4>
       <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-1">
-        {references?.map((reference) => {
+        {references?.map((reference: any) => {
           const { name, title, organization, id, linkedIn } = reference;
           return (
             <Reference
@@ -27,12 +27,11 @@ const References = () => {
               organization={organization}
               linkedin={linkedIn}
             />
-          )
+          );
         })}
-
       </div>
     </section>
   );
 };
-References.displayName = "References";
+References.displayName = 'References';
 export default References;

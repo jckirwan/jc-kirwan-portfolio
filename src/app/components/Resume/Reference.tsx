@@ -1,7 +1,18 @@
+'use client';
+import Link from 'next/link';
+interface ReferenceProps {
+  name: string;
+  title: string;
+  organization: string;
+  linkedin: string;
+}
 
-"use client"
-import Link from "next/link";
-const Reference = ({ name, title, organization, linkedin }) => {
+const Reference: React.FC<ReferenceProps> = ({
+  name,
+  title,
+  organization,
+  linkedin,
+}) => {
   return (
     <Link
       target="_blank"
@@ -19,5 +30,5 @@ const Reference = ({ name, title, organization, linkedin }) => {
     </Link>
   );
 };
-Reference.displayName = "Reference";
+Reference.displayName = 'Reference';
 export default Reference;

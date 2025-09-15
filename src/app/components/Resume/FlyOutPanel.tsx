@@ -1,12 +1,17 @@
-"use client"
-import { Download, X } from "react-feather";
-import { animated, useSpring } from "@react-spring/web";
-import SkillsSummary from "./SkillsSummary";
-import Experience from "./Experience";
-import Education from "./Education";
-import References from "./References";
-import Link from "next/link";
-const FlyOutPanel = ({ springs, api }) => {
+'use client';
+import { Download, X } from 'react-feather';
+import { animated, useSpring } from '@react-spring/web';
+import SkillsSummary from './SkillsSummary';
+import Experience from './Experience';
+import Education from './Education';
+import References from './References';
+import Link from 'next/link';
+interface FlyOutPanelProps {
+  springs: any;
+  api: any;
+}
+
+const FlyOutPanel: React.FC<FlyOutPanelProps> = ({ springs, api }) => {
   const closePanel = () => {
     api.start({
       from: { right: 0 },
@@ -42,7 +47,9 @@ const FlyOutPanel = ({ springs, api }) => {
         </button>
       </section>
       <div className="block">
-        <span className="hidden print:inline">https://jc-kirwan.com | </span>jckirwan@gmail.com | Gainesville, FL<span className="hidden print:inline"> | 352.256.4157</span>
+        <span className="hidden print:inline">https://jc-kirwan.com | </span>
+        jckirwan@gmail.com | Gainesville, FL
+        <span className="hidden print:inline"> | 352.256.4157</span>
       </div>
       <SkillsSummary />
       <Experience />
@@ -53,5 +60,5 @@ const FlyOutPanel = ({ springs, api }) => {
     </animated.aside>
   );
 };
-FlyOutPanel.displayName = "FlyOutPanel";
+FlyOutPanel.displayName = 'FlyOutPanel';
 export default FlyOutPanel;
