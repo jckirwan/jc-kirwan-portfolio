@@ -52,7 +52,7 @@ const Modal: React.FC = () => {
       <div className="flex justify-center items-center fixed inset-0 z-[52] overflow-y-auto">
         <div className="relative w-full max-w-lg md:max-w-[50%] mx-4 my-8 bg-zinc-900 border border-gray-300 text-white shadow-md rounded-md p-0 max-h-[90vh] flex flex-col">
           <div className="flex flex-row justify-between mb-4 px-8 pt-8">
-            <span className="font-black">{item?.title}</span>
+            <h2 className="font-black uppercase text-3xl">{item?.title}</h2>
             <button onClick={() => closeModal()}>
               <X className="text-red-600 hover:text-cyan-400" />
             </button>
@@ -114,7 +114,7 @@ const Modal: React.FC = () => {
               <>
                 {caseStudyStep === 0 && (
                   <div className="py-8">
-                    <div className="flex w-full flex-col md:flex-row items-center md:items-start justify-between gap-8">
+                    <div className="flex w-full flex-col lg:flex-row items-center lg:items-start justify-between gap-8">
                       <div className="flex h-full flex-col justifiy-between gap-4">
                         <h3 className="uppercase font-black">Challenge</h3>
                         <HelpCircle className="w-full h-full text-cyan-500" />
@@ -128,8 +128,7 @@ const Modal: React.FC = () => {
                             className="self-end w-fit flex flex-row items-center justify-between bg-red-600 hover:bg-cyan-400 hover:cursor-pointer text-white text-sm rounded px-4 py-2"
                             onClick={() => setCaseStudyStep(1)}
                           >
-                            View solution{' '}
-                            <ArrowRight className="h-4 w-4 ml-6" />
+                            Solution <ArrowRight className="h-4 w-4 ml-6" />
                           </button>
                         </div>
                       </div>
@@ -138,7 +137,7 @@ const Modal: React.FC = () => {
                 )}
                 {caseStudyStep === 1 && (
                   <div className="py-8">
-                    <div className="flex w-full flex-row items-start justify-between gap-8">
+                    <div className="flex w-full flex-col lg:flex-row items-center lg:items-start justify-between gap-8">
                       <div className="flex h-full flex-col justifiy-between gap-4">
                         <h3 className="uppercase font-black">Solution</h3>
                         <Key className="w-full h-full text-cyan-500" />
@@ -153,13 +152,13 @@ const Modal: React.FC = () => {
                             onClick={() => setCaseStudyStep(0)}
                           >
                             <ArrowLeft className="h-4 w-4 mr-6" />
-                            View challenge
+                            Challenge
                           </button>
                           <button
                             className="w-fit flex flex-row items-center justify-between bg-red-600 hover:bg-cyan-400 hover:cursor-pointer text-white text-sm rounded px-4 py-2"
                             onClick={() => setCaseStudyStep(2)}
                           >
-                            View results <ArrowRight className="h-4 w-4 ml-6" />
+                            Results <ArrowRight className="h-4 w-4 ml-6" />
                           </button>
                         </div>
                       </div>
@@ -168,7 +167,7 @@ const Modal: React.FC = () => {
                 )}
                 {caseStudyStep === 2 && (
                   <div className="py-8">
-                    <div className="flex w-full flex-row items-start justify-between gap-8">
+                    <div className="flex w-full flex-col lg:flex-row items-center lg:items-start justify-between gap-8">
                       <div className="flex h-full flex-col justifiy-between gap-4">
                         <h3 className="uppercase font-black">Result</h3>
                         <Zap className="w-full h-full text-cyan-500" />
@@ -182,7 +181,7 @@ const Modal: React.FC = () => {
                             className="self-start w-fit flex flex-row items-center justify-between bg-red-600 hover:bg-cyan-400 hover:cursor-pointer text-white text-sm rounded px-4 py-2"
                             onClick={() => setCaseStudyStep(1)}
                           >
-                            <ArrowLeft className="h-4 w-4 mr-6" /> View solution
+                            <ArrowLeft className="h-4 w-4 mr-6" /> Solution
                           </button>
                         </div>
                       </div>

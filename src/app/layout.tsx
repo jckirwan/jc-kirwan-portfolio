@@ -11,7 +11,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-zinc-800">
         <ContentState>{children}</ContentState>
       </body>
     </html>
