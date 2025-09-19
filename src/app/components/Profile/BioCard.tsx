@@ -10,8 +10,15 @@ const BioCard: React.FC<BioCardProps> = ({ openPanel }) => {
   return (
     <div className="flex flex-col text-gray-300 items-center justify-start w-full bg-zinc-800">
       <p className="text-lg text-justify py-4">
-        I am an experienced senior frontend engineer who is passionate about
-        building intuitive, consistent and accessible user experiences.
+        I’m a senior software engineer with expertise in React, TypeScript, and
+        modern design-system architecture. At CTI, I’ve led engineers, set UI
+        architecture direction, and championed coding standards. My work
+        includes modernizing GIS tools, building micro-frontend and plugin
+        architectures, and mentoring teammates. I bring technical depth,
+        architectural vision, and proven leadership, with a strong record of
+        delivering scalable, intuitive front-end solutions. I’m eager to take on
+        opportunities where I can drive engineering excellence and support team
+        growth.
       </p>
       <div className="flex flex-row flex-wrap w-full justify-around items-center pb-4">
         <Link
