@@ -47,8 +47,7 @@ const FlyOutPanel: React.FC<FlyOutPanelProps> = ({ springs, api }) => {
         </button>
       </section>
       <div className="block">
-        <span className="hidden print:inline">https://jc-kirwan.com | </span>
-        jckirwan@gmail.com | Gainesville, FL
+        jckirwan@gmail.com
         <span className="hidden print:inline"> | 352.256.4157</span>
       </div>
       <SkillsSummary />
