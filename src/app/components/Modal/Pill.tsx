@@ -5,7 +5,9 @@ interface PillProps {
 
 const Pill: React.FC<PillProps> = ({ text }) => {
   return (
-    <div className="rounded-xl bg-cyan-600 text-white m-2 p-4">{text}</div>
+    <div className="m-1 rounded-full border border-edge bg-overlay px-3 py-1.5 font-mono text-xs text-secondary">
+      {text}
+    </div>
   );
 };
 Pill.displayName = 'Pill';

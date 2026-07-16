@@ -1,3 +1,110 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  /* Primitive tokens */
+  --ink-950: #121114;
+  --ink-900: #19181c;
+  --ink-850: #201f24;
+  --ink-800: #28272d;
+  --ink-700: #3a383f;
+  --paper-100: #f4f2ee;
+  --paper-300: #d9d5cd;
+  --paper-500: #a8a39a;
+  --crimson-400: #ff5d5d;
+  --crimson-500: #e6393f;
+  --crimson-600: #c92a30;
+  --cyan-300: #7fe3e0;
+  --cyan-500: #2cc5c1;
+
+  /* Semantic tokens */
+  --surface-page: var(--ink-950);
+  --surface-raised: var(--ink-900);
+  --surface-overlay: var(--ink-850);
+  --text-primary: var(--paper-100);
+  --text-secondary: var(--paper-300);
+  --text-muted: var(--paper-500);
+  --accent: var(--crimson-500);
+  --accent-hover: var(--crimson-400);
+  --accent-alt: var(--cyan-500);
+  --border-subtle: rgba(244, 242, 238, 0.08);
+  --border-strong: rgba(244, 242, 238, 0.16);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper-100);
+}
+
+html {
+  background-color: var(--surface-page);
+  scrollbar-color: var(--ink-700) var(--surface-page);
+}
+
+/* Layered atmosphere behind everything */
+.atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      52rem 36rem at 12% -8%,
+      rgba(230, 57, 63, 0.09),
+      transparent 60%
+    ),
+    radial-gradient(
+      44rem 30rem at 105% 12%,
+      rgba(44, 197, 193, 0.06),
+      transparent 65%
+    ),
+    radial-gradient(
+      60rem 42rem at 50% 115%,
+      rgba(230, 57, 63, 0.05),
+      transparent 60%
+    );
+}
+
+.atmosphere::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Staggered entrance for cards and hero */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise-in {
+  opacity: 0;
+  animation: rise-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--stagger, 0) * 90ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise-in {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+@media print {
+  .atmosphere {
+    display: none;
+  }
+  .rise-in {
+    animation: none;
+    opacity: 1;
+  }
+}

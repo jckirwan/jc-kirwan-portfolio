@@ -24,7 +24,7 @@ const FlyOutPanel: React.FC<FlyOutPanelProps> = ({ springs, api }) => {
       style={{ ...springs }}
     >
       <section className="flex flex-row justify-between items-center w-full ">
-        <h3 className="flex flex-row items-baseline text-3xl md:text-7xl text-cyan-700 font-black">
+        <h3 className="flex flex-row items-baseline font-display text-3xl md:text-7xl text-cyan-700 font-black">
           JC Kirwan
           <br />
           <Link

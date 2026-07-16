@@ -8,46 +8,42 @@ interface BioCardProps {
 
 const BioCard: React.FC<BioCardProps> = ({ openPanel }) => {
   return (
-    <div className="flex flex-col text-gray-300 items-center justify-start w-full bg-zinc-800">
-      <p className="text-lg text-justify py-4">
-        I’m a senior software engineer with expertise in React, TypeScript, and
-        modern design-system architecture. At CTI, I’ve led engineers, set UI
-        architecture direction, and championed coding standards. My work
-        includes modernizing GIS tools, building micro-frontend and plugin
-        architectures, and mentoring teammates. I bring technical depth,
-        architectural vision, and proven leadership, with a strong record of
-        delivering scalable, intuitive front-end solutions. I’m eager to take on
-        opportunities where I can drive engineering excellence and support team
-        growth.
+    <div className="flex flex-col items-center justify-start w-full rise-in [--stagger:2]">
+      <p className="text-base leading-relaxed text-secondary py-6">
+        I&apos;m a senior software engineer with 12+ years designing, building,
+        and shipping web software — including 8 years building design systems
+        and React component libraries across four organizations. I currently
+        lead the frontend of Tradify&apos;s migration from a legacy AngularJS
+        monolith to a React 19 micro-frontend platform, where I built the design
+        system from the ground up and champion AI-assisted engineering practice
+        across the organization. I bring technical depth, architectural vision,
+        and proven leadership to teams that care about craft.
       </p>
-      <div className="flex flex-row flex-wrap w-full justify-around items-center pb-4">
+      <div className="flex flex-row flex-wrap w-full justify-center gap-3 pb-4">
         <Link
           target="_blank"
           rel="noreferrer nofollow"
           href="https://www.linkedin.com/in/jc-kirwan-825a0835/"
+          className="group flex items-center gap-2 rounded-full border border-edge px-4 py-2 text-sm text-secondary transition-colors hover:border-accent hover:text-primary"
         >
-          <div className="text-center">
-            <Linkedin className="h-8 w-8 text-red-600 mx-2 hover:text-cyan-400" />
-            <span>LinkedIn</span>
-          </div>
+          <Linkedin className="h-4 w-4 text-accent transition-colors group-hover:text-accent-hover" />
+          LinkedIn
         </Link>
         <Link
-          className="border-1 border-red-100"
           target="_blank"
           rel="noreferrer nofollow"
           href="https://github.com/jckirwan"
+          className="group flex items-center gap-2 rounded-full border border-edge px-4 py-2 text-sm text-secondary transition-colors hover:border-accent hover:text-primary"
         >
-          <div className="text-center">
-            <GitHub className="h-8 w-8 text-red-600 mx-2 hover:text-cyan-400" />
-            <span>GitHub</span>
-          </div>
+          <GitHub className="h-4 w-4 text-accent transition-colors group-hover:text-accent-hover" />
+          GitHub
         </Link>
-
-        <button className="appearance-none" onClick={() => openPanel()}>
-          <div className="text-center">
-            <FileText className="h-8 w-8 text-red-600 mx-2 hover:text-cyan-400" />
-            <span>Resume</span>
-          </div>
+        <button
+          onClick={() => openPanel()}
+          className="group flex items-center gap-2 rounded-full border border-edge px-4 py-2 text-sm text-secondary transition-colors hover:border-accent hover:text-primary"
+        >
+          <FileText className="h-4 w-4 text-accent transition-colors group-hover:text-accent-hover" />
+          Resume
         </button>
       </div>
     </div>
