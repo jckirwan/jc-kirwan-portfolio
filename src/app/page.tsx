@@ -24,15 +24,16 @@ const Home: React.FC = () => {
 
   return (
     <div
-      className={`bg-zinc-800 overscroll-none ${showModal ? 'overflow-hidden' : ''}`}
+      className={`relative z-10 overscroll-none ${showModal ? 'overflow-hidden' : ''}`}
     >
-      <main className="flex flex-col lg:flex-row min-h-screen h-full items-start justify-between px-4">
-        <div className="flex flex-col w-full lg:w-1/4 p-4">
+      <title>JC Kirwan — Senior Software Engineer</title>
+      <main className="flex flex-col lg:flex-row min-h-screen h-full items-start justify-between px-4 mx-auto max-w-screen-2xl">
+        <div className="flex flex-col w-full lg:w-1/4 p-4 lg:sticky lg:top-0">
           <div className="print:hidden">
             <Profile openPanel={openPanel} springs={springs} />
           </div>
         </div>
-        <div className="flex flex-col w-full lg:w-3/4 lg:p-4">
+        <div className="flex flex-col w-full lg:w-3/4 lg:p-4 @container">
           <div className="print:hidden">
             <WorkExperience />
           </div>

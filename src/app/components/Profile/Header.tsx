@@ -1,12 +1,18 @@
 'use client';
 const Header: React.FC = () => {
   return (
-    <header className="h-full full text-center flex flex-row justify-center">
-      <div className="py-4 w-full text-gray-200">
-        <p className="uppercase text-sm text-center">
-          Experienced Senior Software Engineer
+    <header className="h-full w-full text-center flex flex-row justify-center rise-in">
+      <div className="py-6 w-full">
+        <p className="font-mono uppercase tracking-[0.3em] text-xs text-accent">
+          Senior Software Engineer
         </p>
-        <h1 className="text-4xl text-gray-200 font-black">JC Kirwan</h1>
+        <h1 className="font-display text-5xl md:text-6xl text-primary font-black mt-2">
+          JC Kirwan
+        </h1>
+        <div
+          className="mx-auto mt-4 h-px w-16 bg-gradient-to-r from-transparent via-accent to-transparent"
+          aria-hidden="true"
+        />
       </div>
     </header>
   );
