@@ -33,7 +33,7 @@ const SingleWorkSample: React.FC<SingleWorkSampleProps> = ({
       className="group relative flex w-full flex-col rounded-xl border border-edge bg-raised p-6 shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:border-edge-strong hover:shadow-xl hover:shadow-accent/10 rise-in"
       style={{ '--stagger': index } as React.CSSProperties}
     >
-      <div className="absolute right-4 top-4 flex items-start justify-center rounded-md bg-primary/90 p-2">
+      <div className="absolute right-4 top-4 flex items-start justify-center rounded-md bg-primary p-2">
         <Image
           className="h-auto w-20"
           src={'https:' + logo}

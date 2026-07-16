@@ -33,7 +33,7 @@ const Home: React.FC = () => {
             <Profile openPanel={openPanel} springs={springs} />
           </div>
         </div>
-        <div className="flex flex-col w-full lg:w-3/4 lg:p-4">
+        <div className="flex flex-col w-full lg:w-3/4 lg:p-4 @container">
           <div className="print:hidden">
             <WorkExperience />
           </div>

@@ -32,7 +32,7 @@ const CaseStudies: React.FC = () => {
         <div className="h-px flex-1 bg-edge" aria-hidden="true" />
       </div>
       {!loading ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 justify-center w-full">
+        <div className="grid grid-cols-1 @3xl:grid-cols-2 gap-5 justify-center w-full">
           {caseStudies?.map((caseStudy: any, index: number) => {
             return (
               <SingleCaseStudy

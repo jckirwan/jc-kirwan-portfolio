@@ -32,7 +32,7 @@ const WorkSamples: React.FC = () => {
         <div className="h-px flex-1 bg-edge" aria-hidden="true" />
       </div>
       {!loading ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-center w-full">
+        <div className="grid grid-cols-1 @2xl:grid-cols-2 @5xl:grid-cols-3 gap-5 justify-center w-full">
           {workSamples?.map((workSample: any, index: number) => {
             return (
               <SingleWorkSample

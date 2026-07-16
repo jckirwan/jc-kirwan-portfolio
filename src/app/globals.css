@@ -92,8 +92,44 @@ html {
   animation-delay: calc(var(--stagger, 0) * 90ms);
 }
 
+/* Modal entrance + step transitions */
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-backdrop {
+  animation: backdrop-in 0.25s ease-out both;
+}
+
+.modal-surface {
+  animation: modal-in 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.modal-step {
+  animation: rise-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .rise-in {
+  .rise-in,
+  .modal-backdrop,
+  .modal-surface,
+  .modal-step {
     animation: none;
     opacity: 1;
   }

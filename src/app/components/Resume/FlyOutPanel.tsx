@@ -20,7 +20,7 @@ const FlyOutPanel: React.FC<FlyOutPanelProps> = ({ springs, api }) => {
   };
   return (
     <animated.aside
-      className="fixed z-50 shadow-xl top-0 bottom-0 bg-gray-200 w-screen h-screen p-4 md:p-12 overflow-auto rounded-l-xl print:bg-white print:rounded-none print:!relative print:!w-auto print:!h-auto print:!block print:!overflow-visible print:border-0 print:shadow-none"
+      className="fixed z-50 shadow-xl top-0 bottom-0 bg-gray-200 text-zinc-800 w-screen h-screen p-4 md:p-12 overflow-auto rounded-l-xl print:bg-white print:rounded-none print:!relative print:!w-auto print:!h-auto print:!block print:!overflow-visible print:border-0 print:shadow-none"
       style={{ ...springs }}
     >
       <section className="flex flex-row justify-between items-center w-full ">

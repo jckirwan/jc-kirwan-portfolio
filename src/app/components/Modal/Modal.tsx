@@ -46,11 +46,11 @@ const Modal: React.FC = () => {
   return showModal ? (
     <>
       <div
-        className="flex fixed top-0 bottom-0 right-0 left-0 z-[51] bg-black/70 backdrop-blur-sm h-screen w-screen"
+        className="modal-backdrop flex fixed top-0 bottom-0 right-0 left-0 z-[51] bg-black/70 backdrop-blur-sm h-screen w-screen"
         role="dialog"
       />
       <div className="flex justify-center items-center fixed inset-0 z-[52] overflow-y-auto">
-        <div className="relative w-full max-w-lg md:max-w-[50%] mx-4 my-8 bg-raised border border-edge-strong text-primary shadow-2xl shadow-black/60 rounded-2xl p-0 max-h-[90vh] flex flex-col">
+        <div className="modal-surface relative w-full max-w-lg md:max-w-[50%] mx-4 my-8 bg-raised border border-edge-strong text-primary shadow-2xl shadow-black/60 rounded-2xl p-0 max-h-[90vh] flex flex-col">
           <div className="flex flex-row justify-between mb-4 px-8 pt-8">
             <h2 className="font-display font-black uppercase text-3xl text-primary">
               {item?.title}
@@ -114,7 +114,7 @@ const Modal: React.FC = () => {
             {isCaseStudy ? (
               <>
                 {caseStudyStep === 0 && (
-                  <div className="py-8">
+                  <div className="modal-step py-8">
                     <div className="flex w-full flex-col lg:flex-row items-center lg:items-start justify-between gap-8">
                       <div className="flex h-full flex-col justifiy-between gap-4">
                         <h3 className="uppercase font-black">Challenge</h3>
@@ -137,7 +137,7 @@ const Modal: React.FC = () => {
                   </div>
                 )}
                 {caseStudyStep === 1 && (
-                  <div className="py-8">
+                  <div className="modal-step py-8">
                     <div className="flex w-full flex-col lg:flex-row items-center lg:items-start justify-between gap-8">
                       <div className="flex h-full flex-col justifiy-between gap-4">
                         <h3 className="uppercase font-black">Solution</h3>
@@ -167,7 +167,7 @@ const Modal: React.FC = () => {
                   </div>
                 )}
                 {caseStudyStep === 2 && (
-                  <div className="py-8">
+                  <div className="modal-step py-8">
                     <div className="flex w-full flex-col lg:flex-row items-center lg:items-start justify-between gap-8">
                       <div className="flex h-full flex-col justifiy-between gap-4">
                         <h3 className="uppercase font-black">Result</h3>
