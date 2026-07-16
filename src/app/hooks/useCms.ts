@@ -1,8 +1,24 @@
 'use client';
-import { useContext } from 'react';
+import { createElement, useContext } from 'react';
 import ContentContext from '../contexts/content/contentContext';
 import { ContentfulClient } from 'react-contentful';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+
+const richTextOptions = {
+  renderNode: {
+    'embedded-asset-block': (node: any) => {
+      const file = node?.data?.target?.fields?.file;
+      if (!file?.url) return null;
+      return createElement('img', {
+        src: 'https:' + file.url,
+        alt: node?.data?.target?.fields?.description || '',
+        loading: 'lazy',
+        className:
+          'my-6 w-full rounded-lg border border-edge bg-overlay p-3 md:p-4',
+      });
+    },
+  },
+};
 
 // TODO: Add proper types for ContentfulClient and context
 export const useCms = () => {
@@ -40,6 +56,7 @@ export const useCms = () => {
               summary: item?.fields?.summary,
               description: documentToReactComponents(
                 item?.fields?.detailedDescription,
+                richTextOptions,
               ),
               primaryImage: item?.fields?.primaryImage?.fields?.file?.url,
               primaryImageAlt: item?.fields?.primaryImage?.fields?.description,
@@ -159,9 +176,18 @@ export const useCms = () => {
               logo: item?.fields?.companyLogo?.fields?.file?.url,
               logoAlt: item?.fields?.companyLogo?.fields?.description,
               summary: item?.fields?.summary,
-              challenge: documentToReactComponents(item?.fields?.challenge),
-              solution: documentToReactComponents(item?.fields?.solution),
-              results: documentToReactComponents(item?.fields?.results),
+              challenge: documentToReactComponents(
+                item?.fields?.challenge,
+                richTextOptions,
+              ),
+              solution: documentToReactComponents(
+                item?.fields?.solution,
+                richTextOptions,
+              ),
+              results: documentToReactComponents(
+                item?.fields?.results,
+                richTextOptions,
+              ),
               technologiesUsed: item?.fields?.technologiesUsed,
             });
             return setCaseStudies(posts);
