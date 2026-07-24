@@ -1,0 +1,42 @@
+repo: jc-kirwan
+description: Personal portfolio site — Next.js (pages/components), yarn, deployed on push via Vercel/Netlify. No CI and no test suite; lint + build are the only gates.
+
+routing_hints:
+  - "Portfolio page, component, or styling work (Next.js + yarn)"
+  - "Visual refresh / design changes to jckirwan portfolio"
+
+commands:
+  install: yarn install
+  build: yarn build
+  lint: yarn lint
+
+conventions_files:
+  - README.md
+
+specialists: []
+
+inspectors:
+  always: []
+  never: []
+
+critic_focus:
+  regression:
+    - "there is NO test suite and deploys happen on push — a broken `yarn build` ships a broken site; build must be verified green before any PR merges"
+  performance:
+    - "Next.js image handling and bundle weight — this is a public portfolio, first paint is the product"
+  security:
+    - "public repo for a public site — nothing private (emails beyond the public one, tokens, client work) belongs in content or history"
+
+doc_focus:
+  surfaces:
+    - README.md
+  invariants: []
+  ignore: []
+
+qa:
+  offer: auto
+  focus:
+    - "site builds and renders correctly — remember every merge is effectively a deploy"
+
+worktree:
+  bootstrap: "yarn install"
