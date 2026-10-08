@@ -1,0 +1,122 @@
+[
+  {
+    "id": "sideQuestOui",
+    "order": 1,
+    "title": "Ouilets: Little Apps for Deciding Together",
+    "logo": "oui-logo.png",
+    "logoAlt": "Oui! Let's... logo",
+    "link": "https://ouilets.com",
+    "summary": "A family of no-account, phone-first apps for deciding things together: what to watch, where to eat, and who is winning. Three apps, one monorepo, shipped to the web and to a native mobile host in about five weeks of evenings.",
+    "technologiesUsed": [
+      "React 19",
+      "TypeScript",
+      "Rspack",
+      "Tailwind v4",
+      "Expo / React Native",
+      "Socket.IO",
+      "Express",
+      "MongoDB Atlas"
+    ],
+    "challenge": [
+      {
+        "p": "Picking a film with more than one person is a negotiation: endless scrolling, arguing over the shortlist, and forgetting which streaming services the household even pays for. Picking a restaurant is worse, because everyone says \"I don't mind.\" And keeping score at the kitchen table always ends with someone disputing a number."
+      },
+      {
+        "p": "Each of these is a tiny product, which made the platform question the interesting one. The constraints I set for the whole family of apps:"
+      },
+      {
+        "ul": [
+          "No accounts. A device token bound to a claimed name and a four-letter join code is the entire identity model.",
+          "Ephemeral by design: parties expire after seven days, and the app never plays video. It only decides.",
+          "Free-tier hosting only, so every design choice had to fit a Vercel Hobby, Render free and MongoDB Atlas M0 budget.",
+          "Build the second and third app without copying the first, and without turning a weekend project into a micro-frontend platform."
+        ]
+      }
+    ],
+    "solution": [
+      {
+        "p": "One Bun workspaces monorepo with an app contract: each ouilet exports a small OuiApp object (base path, brand, root component), and the web shell lazy-loads it and sets the brand on the document. A micro-frontend-ready seam with no federation, recorded in the first ADR."
+      },
+      {
+        "ul": [
+          "A shared party engine that owns lobby, join codes, presence and phase state over one Socket.IO room per party, with a headless subpath so web and native share the same engine. A test walks the headless barrel and fails if anything but react, socket.io-client and the shared package leaks in.",
+          "Watch Together: swipe-to-match against the TMDB catalog, filtered to the services the group actually has. Lobby events use a load, pure-reducer, save loop with optimistic concurrency; swipes use a single atomic, idempotent update so five people swiping at once cannot cause a retry storm. Matches are re-verified live against streaming availability before they are announced.",
+          "Eat Together: Google Places text search with three-bucket preferences and hard quota caps so a busy night cannot run up a bill.",
+          "Keep Score: every entered score stays pending until another player approves it, and self-approval is rejected server-side.",
+          "Multi-brand theming from one stylesheet: the three brands differ by hue only, scoped by a data-brand attribute, with a parity test in CI.",
+          "A native host on Expo and React Native that runs Watch Together natively, opens the other ouilets in-app, and consumes design tokens generated from the same brand CSS.",
+          "A structure doctrine enforced by four custom gates in CI and pre-commit: hub-and-spoke layout, one component per file, import layers checked with dependency-cruiser, and brand parity."
+        ]
+      }
+    ],
+    "results": [
+      {
+        "ul": [
+          "Live at ouilets.com with three apps, six shared packages and one API, built in roughly five weeks across 293 commits.",
+          "1,058 tests across web, native and API, running on one CI job alongside the structure gates.",
+          "Native app built for both stores: the iOS build is processed in TestFlight and the Android release bundle is signed for the Play Console.",
+          "Runs at zero fixed cost. Monetisation is affiliate links only where a link already existed, plus a one-off Supporter purchase through Stripe, verified server-side.",
+          "Seven ADRs and thirteen design specs mean the next ouilet is one OuiApp export and a shell route, not a new repo."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sideQuestGlobalJam",
+    "order": 2,
+    "title": "GlobalJam: Remote Rehearsal for Bands",
+    "logo": "global-jam-logo.svg",
+    "logoAlt": "GlobalJam logo",
+    "link": "https://global-jams.com",
+    "summary": "A platform for bands split across cities and countries to rehearse together and come away with time-aligned, multi-track recordings. A React micro-frontend host, fourteen Go services and a native Rust audio bridge, shipped to production and then rebuilt to run at zero hosting cost.",
+    "technologiesUsed": [
+      "Rust",
+      "Go",
+      "React 19",
+      "Module Federation",
+      "WebRTC / TURN",
+      "Opus / UDP audio",
+      "PostgreSQL",
+      "Terraform"
+    ],
+    "challenge": [
+      {
+        "p": "The founding case is my own: a band with members in Auckland and Gainesville, Florida, about 13,000 km apart. Ensemble playing breaks down above roughly 25 ms of one-way latency, intercontinental round trips sit near 200 ms, and browsers add 20 to 100 ms of audio overhead on top. No amount of engineering makes that disappear."
+      },
+      {
+        "p": "So the product question became: what is honestly possible, and what is worth paying for?"
+      },
+      {
+        "ul": [
+          "Audio has to leave the browser. Direct device access, Opus with forward error correction and an adaptive jitter buffer are a native problem.",
+          "Every musician needs a shared clock and a shared click, so that whatever they hear live, the recording lines up sample-accurately.",
+          "Peer-to-peer UDP fails behind many home and campus networks, so the audio path needs its own relay.",
+          "The first production footprint on Kubernetes cost low hundreds of dollars a month with zero users. The platform had to survive long enough to find them."
+        ]
+      }
+    ],
+    "solution": [
+      {
+        "ul": [
+          "A native Audio Bridge in Rust: CPAL device I/O, Opus at 48 kHz in 20 ms frames with in-band FEC, UDP peer-to-peer transport, a 5 to 40 ms adaptive jitter buffer, dropout detection and a soft-knee master limiter. Signed and notarised macOS builds, with Windows and Linux builds from the same workflow.",
+          "Tempo-Lock: NTP-style clock sync over UDP to sub-millisecond offsets, a shared click at session tempo, and onset detection, so every stream is timestamped and sessions render as time-aligned 24-bit FLAC stems plus a click stem.",
+          "Two-plane audio: talk-back voice rides WebRTC with echo cancellation and noise suppression; performance audio never touches it.",
+          "Per-pair topology chosen from measured round-trip time: direct UDP under 25 ms, Tempo-Lock above it, and a TURN relay built into the bridge when UDP is blocked, with ephemeral HMAC credentials and peer attribution keyed on channel number rather than packet source.",
+          "A React 19 micro-frontend host on Rspack and Module Federation with ten feature plugins (rooms, sessions, bands, audio bridge, video, livestream and more), backed by fourteen Go services behind a routes-driven gateway with JWT, RBAC and a Redis-backed WebSocket hub.",
+          "Cost collapse without a rewrite: the thirteen Kubernetes deployments were composed into one Go binary through per-service build packages and moved to Render, Neon Postgres, Backblaze B2 and an Oracle Always Free VM for TURN. Every existing test still runs.",
+          "Twelve ADRs, a Stripe billing design, and a crew of 31 repo-scoped AI agents and 18 skills that executed implementation waves in parallel git worktrees."
+        ]
+      }
+    ],
+    "results": [
+      {
+        "ul": [
+          "Shipped to production at global-jams.com through v1.0.10 with a three-stage promotion pipeline (test, release candidate, production) on byte-identical images.",
+          "948 commits in six months, with 2,517 Go tests, 919 Rust tests and 3,444 frontend test cases, plus Playwright end-to-end coverage.",
+          "Monthly hosting cost went from low hundreds of dollars to zero with no feature loss.",
+          "The honest latency model reframed the product: sell remote rehearsal with every part captured as a stem, not fake real-time jamming. That is the MVP now being validated with outside bands."
+        ]
+      }
+    ]
+  }
+]

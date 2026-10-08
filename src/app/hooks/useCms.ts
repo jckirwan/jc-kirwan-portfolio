@@ -29,6 +29,7 @@ export const useCms = () => {
     setWorkExperience,
     setReferences,
     setCaseStudies,
+    setSideQuests,
   } = useContext(ContentContext || {});
   // @ts-ignore
   const contentfulClient: any = new ContentfulClient({
@@ -158,6 +159,30 @@ export const useCms = () => {
     }
   };
 
+  // Case studies and side quests share one shape: a card with a logo and
+  // summary, and a Challenge / Solution / Results stepper in the modal.
+  const mapCaseStudyEntry = (item: any) => ({
+    data: item,
+    isCaseStudy: true,
+    id: item?.sys?.id,
+    title: item?.fields?.title,
+    logo: item?.fields?.companyLogo?.fields?.file?.url,
+    logoAlt: item?.fields?.companyLogo?.fields?.description,
+    summary: item?.fields?.summary,
+    challenge: documentToReactComponents(
+      item?.fields?.challenge,
+      richTextOptions,
+    ),
+    solution: documentToReactComponents(
+      item?.fields?.solution,
+      richTextOptions,
+    ),
+    results: documentToReactComponents(item?.fields?.results, richTextOptions),
+    technologiesUsed: item?.fields?.technologiesUsed,
+    link: item?.fields?.link,
+    repository: item?.fields?.repository,
+  });
+
   const getCaseStudies = async () => {
     setLoading(true);
     try {
@@ -166,32 +191,25 @@ export const useCms = () => {
           content_type: 'caseStudy',
         })
         .then((response: any) => {
-          let posts = [];
-          response.items.map((item: any) => {
-            posts.push({
-              data: item,
-              isCaseStudy: true,
-              id: item?.sys?.id,
-              title: item?.fields?.title,
-              logo: item?.fields?.companyLogo?.fields?.file?.url,
-              logoAlt: item?.fields?.companyLogo?.fields?.description,
-              summary: item?.fields?.summary,
-              challenge: documentToReactComponents(
-                item?.fields?.challenge,
-                richTextOptions,
-              ),
-              solution: documentToReactComponents(
-                item?.fields?.solution,
-                richTextOptions,
-              ),
-              results: documentToReactComponents(
-                item?.fields?.results,
-                richTextOptions,
-              ),
-              technologiesUsed: item?.fields?.technologiesUsed,
-            });
-            return setCaseStudies(posts);
-          });
+          setCaseStudies(response.items.map(mapCaseStudyEntry));
+        });
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const getSideQuests = async () => {
+    setLoading(true);
+    try {
+      await contentfulClient
+        .getEntries({
+          content_type: 'sideQuest',
+          order: 'fields.order',
+        })
+        .then((response: any) => {
+          setSideQuests(response.items.map(mapCaseStudyEntry));
         });
     } catch (error) {
       console.error(error);
@@ -206,5 +224,6 @@ export const useCms = () => {
     getWorkExperience,
     getReferences,
     getCaseStudies,
+    getSideQuests,
   };
 };
