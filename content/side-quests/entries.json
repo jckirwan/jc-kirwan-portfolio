@@ -38,6 +38,10 @@
         "p": "One Bun workspaces monorepo with an app contract: each ouilet exports a small OuiApp object (base path, brand, root component), and the web shell lazy-loads it and sets the brand on the document. A micro-frontend-ready seam with no federation, recorded in the first ADR."
       },
       {
+        "image": "oui-screens.jpg",
+        "alt": "Oui! Let's... on iPhone: the launcher, a Watch Together lobby with party code and streaming services, a swipe card, a match, and the decided screen."
+      },
+      {
         "ul": [
           "A shared party engine that owns lobby, join codes, presence and phase state over one Socket.IO room per party, with a headless subpath so web and native share the same engine. A test walks the headless barrel and fails if anything but react, socket.io-client and the shared package leaks in.",
           "Watch Together: swipe-to-match against the TMDB catalog, filtered to the services the group actually has. Lobby events use a load, pure-reducer, save loop with optimistic concurrency; swipes use a single atomic, idempotent update so five people swiping at once cannot cause a retry storm. Matches are re-verified live against streaming availability before they are announced.",

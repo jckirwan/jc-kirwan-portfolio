@@ -34,3 +34,5 @@ node scripts/import-side-quests.mjs             # create/update the content type
 ```
 
 The script reads the management token, space and environment from `~/.contentfulrc.json` (set by `contentful login` and `contentful space use`). It is idempotent: entries and assets have fixed ids, so re-running updates them in place.
+
+Each Challenge / Solution / Results section in `entries.json` is a list of blocks: `{"p": "paragraph"}`, `{"ul": ["bullet", ...]}`, or `{"image": "file.jpg", "alt": "..."}`. Image files sit next to `entries.json` and are uploaded as assets and embedded in the rich text.

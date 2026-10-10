@@ -98,12 +98,26 @@ const bullets = (items) => ({
     content: [paragraph(item)],
   })),
 });
-const document = (blocks) => ({
+const embeddedAsset = (assetId) => ({
+  nodeType: 'embedded-asset-block',
+  data: { target: { sys: { type: 'Link', linkType: 'Asset', id: assetId } } },
+  content: [],
+});
+
+// Blocks: {p: "text"}, {ul: ["item", ...]}, or {image: "file.jpg", alt: "..."}.
+// Image blocks become embedded assets; `images` collects what to upload.
+const document = (blocks, entryId, images) => ({
   nodeType: 'document',
   data: {},
-  content: blocks.map((block) =>
-    'ul' in block ? bullets(block.ul) : paragraph(block.p),
-  ),
+  content: blocks.map((block) => {
+    if ('ul' in block) return bullets(block.ul);
+    if ('image' in block) {
+      const assetId = `${entryId}Img${images.length + 1}`;
+      images.push({ assetId, file: block.image, alt: block.alt ?? '' });
+      return embeddedAsset(assetId);
+    }
+    return paragraph(block.p);
+  }),
 });
 
 // ---------- content type ----------
@@ -150,9 +164,12 @@ const contentType = {
 
 // ---------- assets ----------
 const mimeFor = (file) =>
-  ({ '.png': 'image/png', '.svg': 'image/svg+xml', '.jpg': 'image/jpeg' })[
-    path.extname(file).toLowerCase()
-  ] ?? 'application/octet-stream';
+  ({
+    '.png': 'image/png',
+    '.svg': 'image/svg+xml',
+    '.jpg': 'image/jpeg',
+    '.jpeg': 'image/jpeg',
+  })[path.extname(file).toLowerCase()] ?? 'application/octet-stream';
 
 async function upsertAsset(id, file, title) {
   const url = `${base}/assets/${id}`;
@@ -201,15 +218,16 @@ async function upsertAsset(id, file, title) {
 async function upsertEntry(entry) {
   const url = `${base}/entries/${entry.id}`;
   const assetId = `${entry.id}Logo`;
+  const images = [];
   const fields = {
     title: { [LOCALE]: entry.title },
     companyLogo: {
       [LOCALE]: { sys: { type: 'Link', linkType: 'Asset', id: assetId } },
     },
     summary: { [LOCALE]: entry.summary },
-    challenge: { [LOCALE]: document(entry.challenge) },
-    solution: { [LOCALE]: document(entry.solution) },
-    results: { [LOCALE]: document(entry.results) },
+    challenge: { [LOCALE]: document(entry.challenge, entry.id, images) },
+    solution: { [LOCALE]: document(entry.solution, entry.id, images) },
+    results: { [LOCALE]: document(entry.results, entry.id, images) },
     technologiesUsed: { [LOCALE]: entry.technologiesUsed },
     order: { [LOCALE]: entry.order },
   };
@@ -218,9 +236,17 @@ async function upsertEntry(entry) {
 
   if (dryRun) {
     console.log(`[dry-run] entry ${entry.id}: ${entry.title}`);
+    for (const image of images) {
+      console.log(
+        `[dry-run]   embedded image ${image.assetId} <- ${image.file}`,
+      );
+    }
     return;
   }
   await upsertAsset(assetId, entry.logo, entry.logoAlt);
+  for (const image of images) {
+    await upsertAsset(image.assetId, image.file, image.alt);
+  }
   const saved = await upsert(
     url,
     { fields },
