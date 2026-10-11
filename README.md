@@ -23,3 +23,16 @@ contentful space import --content-file contentful-content-model.json --space-id 
 ```
 
 Finally, use the Contentful CMS to add content to your local project.
+
+### Side Quests
+
+The "Side Quests" section (personal projects, told in the same Challenge / Solution / Results shape as the case studies) is driven by a `sideQuest` content type. Its copy and logos live in this repo under `content/side-quests/` so they can be reviewed in a pull request and re-imported at any time:
+
+```
+node scripts/import-side-quests.mjs --dry-run   # show what would change
+node scripts/import-side-quests.mjs             # create/update the content type, assets and entries, then publish
+```
+
+The script reads the management token, space and environment from `~/.contentfulrc.json` (set by `contentful login` and `contentful space use`). It is idempotent: entries and assets have fixed ids, so re-running updates them in place.
+
+Each Challenge / Solution / Results section in `entries.json` is a list of blocks: `{"p": "paragraph"}`, `{"ul": ["bullet", ...]}`, or `{"image": "file.jpg", "alt": "..."}`. Image files sit next to `entries.json` and are uploaded as assets and embedded in the rich text.

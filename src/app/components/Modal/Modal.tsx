@@ -17,16 +17,17 @@ const Modal: React.FC = () => {
     setModalDataId,
     workSamples,
     caseStudies,
+    sideQuests,
   } = useContext(ContentContext);
 
   const [caseStudyStep, setCaseStudyStep] = React.useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const item =
-    workSamples?.filter(
-      (workSample: any) => workSample?.id === modalDataId,
-    )?.[0] ||
-    caseStudies?.filter((caseStudy: any) => caseStudy?.id === modalDataId)?.[0];
+  const item = [
+    ...(workSamples ?? []),
+    ...(caseStudies ?? []),
+    ...(sideQuests ?? []),
+  ].find((entry: any) => entry?.id === modalDataId);
 
   const closeModal = () => {
     setShowModal(false);
@@ -160,12 +161,40 @@ const Modal: React.FC = () => {
                 </div>
               </>
             ) : (
-              <div
-                key={caseStudyStep}
-                className={`modal-step py-6 ${RICH_TEXT_CLASSES}`}
-              >
-                {steps[caseStudyStep]?.content}
-              </div>
+              <>
+                {item?.link || item?.repository ? (
+                  <div className="flex flex-wrap gap-3 pt-6">
+                    {item?.link ? (
+                      <Link
+                        className="flex w-fit flex-row items-center justify-between rounded-full bg-accent px-5 py-2 text-sm text-white transition-colors hover:cursor-pointer hover:bg-accent-hover"
+                        href={item.link}
+                        target="_blank"
+                        rel="noreferrer nofollow"
+                      >
+                        View the live project
+                        <ArrowRight className="ml-6 h-4 w-4" />
+                      </Link>
+                    ) : null}
+                    {item?.repository ? (
+                      <Link
+                        className="flex w-fit flex-row items-center justify-between rounded-full border border-edge-strong px-5 py-2 text-sm text-primary transition-colors hover:border-accent hover:text-accent"
+                        href={item.repository}
+                        target="_blank"
+                        rel="noreferrer nofollow"
+                      >
+                        View the source
+                        <ArrowRight className="ml-6 h-4 w-4" />
+                      </Link>
+                    ) : null}
+                  </div>
+                ) : null}
+                <div
+                  key={caseStudyStep}
+                  className={`modal-step py-6 ${RICH_TEXT_CLASSES}`}
+                >
+                  {steps[caseStudyStep]?.content}
+                </div>
+              </>
             )}
             <div className="flex flex-wrap items-center justify-start pb-6">
               {item?.technologiesUsed?.map((text: string, index: number) => {
