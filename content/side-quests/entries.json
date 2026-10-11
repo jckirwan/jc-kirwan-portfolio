@@ -101,6 +101,10 @@
     ],
     "solution": [
       {
+        "image": "global-jam-screens.jpg",
+        "alt": "GlobalJam web app: sign in, the welcome walkthrough, the Audio Bridge setup step, the rooms list, inside a room waiting for bandmates, and session history."
+      },
+      {
         "ul": [
           "A native Audio Bridge in Rust: CPAL device I/O, Opus at 48 kHz in 20 ms frames with in-band FEC, UDP peer-to-peer transport, a 5 to 40 ms adaptive jitter buffer, dropout detection and a soft-knee master limiter. Signed and notarised macOS builds, with Windows and Linux builds from the same workflow.",
           "Tempo-Lock: NTP-style clock sync over UDP to sub-millisecond offsets, a shared click at session tempo, and onset detection, so every stream is timestamped and sessions render as time-aligned 24-bit FLAC stems plus a click stem.",
